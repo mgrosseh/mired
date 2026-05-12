@@ -35,6 +35,18 @@ repositories {
 
     maven { url = "https://maven.ryanhcode.dev/releases" } // Aeronautics
     maven { url = "https://maven.blamejared.com/" } // Veil
+
+    // Curse Maven
+    exclusiveContent {
+        forRepository {
+            maven {
+                url "https://cursemaven.com"
+            }
+        }
+        filter {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 base {
@@ -160,9 +172,18 @@ dependencies {
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
 
     // Create Aeronautics
-    compileOnly("dev.simulated_team.simulated:simulated-neoforge-1.21.1:1.0.3") { transitive = false } // Simulated / Aero
-    compileOnly("foundry.veil:veil-neoforge-1.21.1:1.0.0.82") { transitive = false } // Veil
+    compileOnly("dev.simulated_team.simulated:simulated-neoforge-${project.minecraft_version}:${project.simulated_version}") { transitive = false } // Simulated / Aero
+    compileOnly("foundry.veil:veil-neoforge-${project.minecraft_version}:${project.veil_version}") { transitive = false } // Veil
     api("dev.ryanhcode.sable:sable-neoforge-${project.minecraft_version}:${project.sable_version}") // Sable
+    // Testing
+
+    runtimeOnly("dev.simulated_team.simulated:simulated-neoforge-${project.minecraft_version}:${project.simulated_version}") { transitive = false } // Simulated / Aero
+    runtimeOnly("foundry.veil:veil-neoforge-${project.minecraft_version}:${project.veil_version}") { transitive = false } // Veil
+    runtimeOnly("dev.ryanhcode.sable:sable-neoforge-${project.minecraft_version}:${project.sable_version}") { transitive = false } // Sable
+
+    implementation "curse.maven:natures-compass-252848:7892954" // runtime dep of simulated
+    //implementation("maven.modrinth:natures-compass:$minecraft_version-$natures_compass_version-neoforge")
+    //implementation("maven.modrinth:explorers-compass:$minecraft_version-$explorers_compass_version-neoforge")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
