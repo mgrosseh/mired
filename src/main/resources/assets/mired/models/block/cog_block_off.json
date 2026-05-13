@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "mired:block/cog_block_off",
+    "particle": "mired:block/cog_block_off"
+  }
+}

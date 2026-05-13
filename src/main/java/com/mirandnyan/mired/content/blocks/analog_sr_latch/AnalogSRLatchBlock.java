@@ -1,153 +1,206 @@
 package com.mirandnyan.mired.content.blocks.analog_sr_latch;
 
-import com.mirandnyan.mired.AllBlockEntityTypes;
-import com.mirandnyan.mired.AllBlockShapes;
 import com.mojang.serialization.MapCodec;
-import com.simibubi.create.content.redstone.diodes.AbstractDiodeBlock;
-import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DiodeBlock;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.Nullable;
-import org.joml.Vector3f;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.ticks.TickPriority;
 
-public class AnalogSRLatchBlock extends AbstractDiodeBlock implements IBE<AnalogSRLatchBlockEntity> {
-    public static final MapCodec<AnalogSRLatchBlock> CODEC = simpleCodec(AnalogSRLatchBlock::new);
-    public static BooleanProperty POWERING = BooleanProperty.create("powering");
-    public static BooleanProperty SIDE_POWERED = BooleanProperty.create("side_powered");
-    public static BooleanProperty INVERTED = BlockStateProperties.INVERTED;
+import javax.annotation.Nullable;
+import java.util.List;
 
-    public AnalogSRLatchBlock(final Properties builder) {
-        super(builder);
-        this.registerDefaultState(this.defaultBlockState()
-                .setValue(POWERED, false)
-                .setValue(SIDE_POWERED, false)
-                .setValue(POWERING, false)
-                .setValue(INVERTED, false)
+public class AnalogSRLatchBlock extends DiodeBlock implements EntityBlock {
+
+    public static final MapCodec<ComparatorBlock> CODEC = simpleCodec(ComparatorBlock::new);
+
+    @Override
+    public MapCodec<ComparatorBlock> codec() {
+        return CODEC;
+    }
+
+    public AnalogSRLatchBlock(BlockBehaviour.Properties properties) {
+        super(properties);
+        this.registerDefaultState(
+                this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(POWERED, Boolean.valueOf(false))
         );
     }
 
     @Override
-    protected MapCodec<? extends DiodeBlock> codec() {
-        return CODEC;
+    protected int getDelay(BlockState state) {
+        return 2;
+    }
+
+    /**
+     * Update the provided state given the provided neighbor direction and neighbor state, returning a new state.
+     * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately returns its solidified counterpart.
+     * Note that this method should ideally consider only the specific direction passed in.
+     */
+    @Override
+    public BlockState updateShape(
+            BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos
+    ) {
+        return direction == Direction.DOWN && !this.canSurviveOn(level, neighborPos, neighborState)
+                ? Blocks.AIR.defaultBlockState()
+                : super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 
     @Override
-    protected void createBlockStateDefinition(final StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, POWERED, SIDE_POWERED, POWERING, INVERTED);
+    protected int getOutputSignal(BlockGetter level, BlockPos pos, BlockState state) {
+        BlockEntity blockentity = level.getBlockEntity(pos);
+        return blockentity instanceof AnalogSRLatchBlockEntity ? ((AnalogSRLatchBlockEntity) blockentity).getOutputSignal() : 0;
     }
 
-    @Override
-    protected void checkTickOnNeighbor(final Level level, final BlockPos pos, final BlockState state) {
-        super.checkTickOnNeighbor(level, pos, state);
-        level.setBlock(pos, this.getUpdatedBlockstate(pos, state, level), 2);
-    }
-
-    @Override
-    public void tick(final BlockState state, final ServerLevel level, final BlockPos pos, final RandomSource random) {}
-
-    @Override
-    public Class<AnalogSRLatchBlockEntity> getBlockEntityClass() {
-        return AnalogSRLatchBlockEntity.class;
-    }
-
-    @Override
-    public BlockEntityType<? extends AnalogSRLatchBlockEntity> getBlockEntityType() {
-        return AllBlockEntityTypes.ANALOG_SR_LATCH.get();
-    }
-
-    public BlockState getUpdatedBlockstate(final BlockPos pos, final BlockState state, final Level level) {
-        final Direction facing = state.getValue(AnalogSRLatchBlock.FACING).getOpposite();
-        final BlockPos offset = pos.relative(facing.getOpposite());
-
-        final BlockPos leftSide = pos.offset(facing.getCounterClockWise().getNormal());
-        final BlockPos rightSide = pos.offset(facing.getClockWise().getNormal());
-
-        final boolean leftSignal = level.getSignal(leftSide, facing.getClockWise().getOpposite()) > 0;
-        final boolean rightSignal = level.getSignal(rightSide, facing.getCounterClockWise().getOpposite()) > 0;
-
-        final boolean backSignal = level.getSignal(offset, facing.getOpposite()) > 0;
-        final boolean sideSignal = leftSignal || rightSignal;
-        final boolean frontSignal = this.getOutputSignal(level, pos, state) > 0;
-
-        return state
-                .setValue(SIDE_POWERED, sideSignal)
-                .setValue(POWERED, backSignal)
-                .setValue(POWERING, frontSignal);
-    }
-
-    @Override
-    public int getSignal(final BlockState state, final BlockGetter level, final BlockPos pos, final Direction dir) {
-        return  state.getValue(FACING) == dir ? this.getOutputSignal(level, pos, state) : 0;
-    }
-
-
-    @Override
-    protected ItemInteractionResult useItemOn(final ItemStack itemStack, final BlockState blockState, final Level level, final BlockPos blockPos, final Player player, final InteractionHand interactionHand, final BlockHitResult blockHitResult) {
-        level.setBlock(blockPos, this.getUpdatedBlockstate(blockPos, blockState.cycle(INVERTED), level), 2);
-        level.updateNeighborsAt(blockPos, blockState.getBlock());
-
-        final float f = !blockState.getValue(INVERTED) ? 0.6F : 0.5F;
-        level.playSound(null, blockPos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.3F, f);
-
-        return ItemInteractionResult.SUCCESS;
-    }
-
-    @Override
-    public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, @Nullable Direction direction) {
-        return direction != null;
-    }
-
-    protected int getOutputSignal(final BlockGetter pLevel, final BlockPos pPos, final BlockState pState) {
-        final AnalogSRLatchBlockEntity be = (AnalogSRLatchBlockEntity) pLevel.getBlockEntity(pPos);
-        if(be != null) {
-            return pState.getValue(INVERTED) ? 15 - be.outputSignal : be.outputSignal;
+    private int calculateOutputSignal(Level level, BlockPos pos, BlockState state) {
+        int i = this.getInputSignal(level, pos, state);
+        if (i == 0) {
+            return 0;
+        } else {
+            int j = this.getAlternateSignal(level, pos, state);
+            if (j > i) {
+                return 0;
+            } else {
+                return 0; // TODO
+                //return state.getValue(MODE) == ComparatorMode.SUBTRACT ? i - j : i;
+            }
         }
-        return 0;
     }
 
     @Override
-    protected int getDelay(final BlockState state) {
-        return 0;
+    protected boolean shouldTurnOn(Level level, BlockPos pos, BlockState state) {
+        int i = this.getInputSignal(level, pos, state);
+        if (i == 0) {
+            return false;
+        } else {
+            int j = this.getAlternateSignal(level, pos, state);
+            //return i > j ? true : i == j && state.getValue(MODE) == ComparatorMode.COMPARE;
+            return true; // TODO
+        }
     }
 
     @Override
-    public void animateTick(final BlockState pState, final Level pLevel, final BlockPos pPos, final RandomSource pRandom) {
-        this.withBlockEntityDo(pLevel, pPos, be -> {
-            if(pState.getValue(POWERED) || be.outputSignal > 0)
-                if(pRandom.nextFloat() < 0.25f)
-                    addParticles(pState, pLevel, pPos, 1f);
-        } );
+    protected int getInputSignal(Level level, BlockPos pos, BlockState state) {
+        int i = super.getInputSignal(level, pos, state);
+        Direction direction = state.getValue(FACING);
+        BlockPos blockpos = pos.relative(direction);
+        BlockState blockstate = level.getBlockState(blockpos);
+        if (blockstate.hasAnalogOutputSignal()) {
+            i = blockstate.getAnalogOutputSignal(level, blockpos);
+        } else if (i < 15 && blockstate.isRedstoneConductor(level, blockpos)) {
+            blockpos = blockpos.relative(direction);
+            blockstate = level.getBlockState(blockpos);
+            ItemFrame itemframe = this.getItemFrame(level, direction, blockpos);
+            int j = Math.max(
+                    itemframe == null ? Integer.MIN_VALUE : itemframe.getAnalogOutput(),
+                    blockstate.hasAnalogOutputSignal() ? blockstate.getAnalogOutputSignal(level, blockpos) : Integer.MIN_VALUE
+            );
+            if (j != Integer.MIN_VALUE) {
+                i = j;
+            }
+        }
+
+        return i;
     }
 
-    private static void addParticles(final BlockState state, final LevelAccessor level, final BlockPos pos, final float alpha) {
-        level.addParticle(new DustParticleOptions(new Vector3f(1.0F, 0.0F, 0.0F), alpha), pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, 0.0D, 0.0D,
-                0.0D);
+    @Nullable
+    private ItemFrame getItemFrame(Level level, Direction facing, BlockPos pos) {
+        List<ItemFrame> list = level.getEntitiesOfClass(
+                ItemFrame.class,
+                new AABB(
+                        (double)pos.getX(),
+                        (double)pos.getY(),
+                        (double)pos.getZ(),
+                        (double)(pos.getX() + 1),
+                        (double)(pos.getY() + 1),
+                        (double)(pos.getZ() + 1)
+                ),
+                p_352876_ -> p_352876_ != null && p_352876_.getDirection() == facing
+        );
+        return list.size() == 1 ? list.get(0) : null;
+    }
+
+    /**
+     * Check the output signal of this diode and schedule a new block tick if it should change.
+     */
+    @Override
+    protected void checkTickOnNeighbor(Level level, BlockPos pos, BlockState state) {
+        if (!level.getBlockTicks().willTickThisTick(pos, this)) {
+            int i = this.calculateOutputSignal(level, pos, state);
+            BlockEntity blockentity = level.getBlockEntity(pos);
+            int j = blockentity instanceof AnalogSRLatchBlockEntity ? ((AnalogSRLatchBlockEntity)blockentity).getOutputSignal() : 0;
+            if (i != j || state.getValue(POWERED) != this.shouldTurnOn(level, pos, state)) {
+                TickPriority tickpriority = this.shouldPrioritize(level, pos, state) ? TickPriority.HIGH : TickPriority.NORMAL;
+                level.scheduleTick(pos, this, 2, tickpriority);
+            }
+        }
+    }
+
+    private void refreshOutputState(Level level, BlockPos pos, BlockState state) {
+        int i = this.calculateOutputSignal(level, pos, state);
+        BlockEntity blockentity = level.getBlockEntity(pos);
+        int j = 0;
+        if (blockentity instanceof AnalogSRLatchBlockEntity be) {
+            j = be.getOutputSignal();
+            be.setOutputSignal(i);
+        }
+
+        if (true /*j != i || state.getValue(MODE) == ComparatorMode.COMPARE*/) { // TODO
+            boolean flag1 = this.shouldTurnOn(level, pos, state);
+            boolean flag = state.getValue(POWERED);
+            if (flag && !flag1) {
+                level.setBlock(pos, state.setValue(POWERED, Boolean.valueOf(false)), 2);
+            } else if (!flag && flag1) {
+                level.setBlock(pos, state.setValue(POWERED, Boolean.valueOf(true)), 2);
+            }
+
+            this.updateNeighborsInFront(level, pos, state);
+        }
     }
 
     @Override
-    public VoxelShape getShape(final BlockState pState, final BlockGetter pLevel, final BlockPos pPos, final CollisionContext pContext) {
-        return AllBlockShapes.ANALOG_SR_LATCH;
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        this.refreshOutputState(level, pos, state);
+    }
+
+    /**
+     * Called on server when {@link net.minecraft.world.level.Level#blockEvent} is called. If server returns true, then also called on the client. On the Server, this may perform additional changes to the world, like pistons replacing the block with an extended base. On the client, the update may involve replacing block entities or effects such as sounds or particles
+     */
+    @Override
+    protected boolean triggerEvent(BlockState state, Level level, BlockPos pos, int id, int param) {
+        super.triggerEvent(state, level, pos, id, param);
+        BlockEntity blockentity = level.getBlockEntity(pos);
+        return blockentity != null && blockentity.triggerEvent(id, param);
+    }
+
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new AnalogSRLatchBlockEntity(pos, state);
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(FACING, POWERED);
+    }
+
+    @Override
+    public boolean getWeakChanges(BlockState state, net.minecraft.world.level.LevelReader world, BlockPos pos) {
+        return state.is(Blocks.COMPARATOR);
+    }
+
+    @Override
+    public void onNeighborChange(BlockState state, net.minecraft.world.level.LevelReader world, BlockPos pos, BlockPos neighbor) {
+        if (pos.getY() == neighbor.getY() && world instanceof Level && !((Level)world).isClientSide()) {
+            state.handleNeighborChanged((Level)world, pos, world.getBlockState(neighbor).getBlock(), neighbor, false);
+        }
     }
 }

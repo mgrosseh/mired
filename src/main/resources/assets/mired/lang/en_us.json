@@ -1,13 +1,5 @@
 {
-  "itemGroup.mired": "Example Mod Tab",
-  "block.mired.example_block": "Example Block",
-  "item.mired.example_item": "Example Item",
-
-  "mired.configuration.title": "Mired Configs",
-  "mired.configuration.section.mired.common.toml": "Mired Configs",
-  "mired.configuration.section.mired.common.toml.title": "Mired Configs",
-  "mired.configuration.items": "Item List",
-  "mired.configuration.logDirtBlock": "Log Dirt Block",
-  "mired.configuration.magicNumberIntroduction": "Magic Number Text",
-  "mired.configuration.magicNumber": "Magic Number"
+  "itemGroup.mired": "Mired",
+  "block.mired.cog_block": "Cog Block",
+  "item.mired.cog_block": "Cog Block"
 }

@@ -1,6 +1,5 @@
 package com.mirandnyan.mired;
 
-import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -25,7 +24,6 @@ public class MiredClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         // Some client setup code
-        Mired.LOGGER.info("HELLO FROM CLIENT SETUP");
-        Mired.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        Mired.LOGGER.info("HELLO FROM CLIENT SETUP Mired");
     }
 }

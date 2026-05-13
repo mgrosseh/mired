@@ -170,20 +170,6 @@ dependencies {
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
-
-    // Create Aeronautics
-    compileOnly("dev.simulated_team.simulated:simulated-neoforge-${project.minecraft_version}:${project.simulated_version}") { transitive = false } // Simulated / Aero
-    compileOnly("foundry.veil:veil-neoforge-${project.minecraft_version}:${project.veil_version}") { transitive = false } // Veil
-    api("dev.ryanhcode.sable:sable-neoforge-${project.minecraft_version}:${project.sable_version}") // Sable
-    // Testing
-
-    runtimeOnly("dev.simulated_team.simulated:simulated-neoforge-${project.minecraft_version}:${project.simulated_version}") { transitive = false } // Simulated / Aero
-    runtimeOnly("foundry.veil:veil-neoforge-${project.minecraft_version}:${project.veil_version}") { transitive = false } // Veil
-    runtimeOnly("dev.ryanhcode.sable:sable-neoforge-${project.minecraft_version}:${project.sable_version}") { transitive = false } // Sable
-
-    implementation "curse.maven:natures-compass-252848:7892954" // runtime dep of simulated
-    //implementation("maven.modrinth:natures-compass:$minecraft_version-$natures_compass_version-neoforge")
-    //implementation("maven.modrinth:explorers-compass:$minecraft_version-$explorers_compass_version-neoforge")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
