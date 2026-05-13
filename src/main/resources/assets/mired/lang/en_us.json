@@ -1,5 +1,12 @@
 {
   "itemGroup.mired": "Mired",
+
   "block.mired.cog_block": "Cog Block",
-  "item.mired.cog_block": "Cog Block"
+  "item.mired.cog_block": "Cog Block",
+
+  "block.mired.analog_sr_latch": "Analog SR-Latch",
+  "item.mired.analog_sr_latch": "Analog SR-Latch",
+
+  "block.mired.analog_inverter": "Analog Inverter",
+  "item.mired.analog_inverter": "Analog Inverter"
 }

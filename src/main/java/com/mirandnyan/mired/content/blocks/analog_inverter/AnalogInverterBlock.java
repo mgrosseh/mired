@@ -1,4 +1,4 @@
-package com.mirandnyan.mired.content.blocks.analog_sr_latch;
+package com.mirandnyan.mired.content.blocks.analog_inverter;
 
 import com.mirandnyan.mired.MiredBlocks;
 import com.mojang.serialization.MapCodec;
@@ -9,23 +9,25 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DiodeBlock;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.ticks.TickPriority;
 
-public class AnalogSRLatchBlock extends DiodeBlock implements EntityBlock {
+public class AnalogInverterBlock extends DiodeBlock implements EntityBlock {
 
-    public static final MapCodec<AnalogSRLatchBlock> CODEC = simpleCodec(AnalogSRLatchBlock::new);
+    public static final MapCodec<AnalogInverterBlock> CODEC = simpleCodec(AnalogInverterBlock::new);
 
     @Override
-    public MapCodec<AnalogSRLatchBlock> codec() {
+    public MapCodec<AnalogInverterBlock> codec() {
         return CODEC;
     }
 
-    public AnalogSRLatchBlock(BlockBehaviour.Properties properties) {
+    public AnalogInverterBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(
                 this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(POWERED, Boolean.valueOf(false))
@@ -49,7 +51,7 @@ public class AnalogSRLatchBlock extends DiodeBlock implements EntityBlock {
     @Override
     protected int getOutputSignal(BlockGetter level, BlockPos pos, BlockState state) {
         BlockEntity blockentity = level.getBlockEntity(pos);
-        return blockentity instanceof AnalogSRLatchBlockEntity ? ((AnalogSRLatchBlockEntity) blockentity).getOutputSignal() : 0;
+        return blockentity instanceof AnalogInverterBlockEntity ? ((AnalogInverterBlockEntity) blockentity).getOutputSignal() : 0;
     }
 
     private int calculateOutputSignal(Level level, BlockPos pos, BlockState state) {
@@ -84,7 +86,7 @@ public class AnalogSRLatchBlock extends DiodeBlock implements EntityBlock {
         if (!level.getBlockTicks().willTickThisTick(pos, this)) {
             int i = this.calculateOutputSignal(level, pos, state);
             BlockEntity blockentity = level.getBlockEntity(pos);
-            int j = blockentity instanceof AnalogSRLatchBlockEntity ? ((AnalogSRLatchBlockEntity)blockentity).getOutputSignal() : 0;
+            int j = blockentity instanceof AnalogInverterBlockEntity ? ((AnalogInverterBlockEntity)blockentity).getOutputSignal() : 0;
             if (i != j || state.getValue(POWERED) != this.shouldTurnOn(level, pos, state)) {
                 TickPriority tickpriority = this.shouldPrioritize(level, pos, state) ? TickPriority.HIGH : TickPriority.NORMAL;
                 level.scheduleTick(pos, this, 2, tickpriority);
@@ -96,7 +98,7 @@ public class AnalogSRLatchBlock extends DiodeBlock implements EntityBlock {
         int i = this.calculateOutputSignal(level, pos, state);
         BlockEntity blockentity = level.getBlockEntity(pos);
         int j = 0;
-        if (blockentity instanceof AnalogSRLatchBlockEntity be) {
+        if (blockentity instanceof AnalogInverterBlockEntity be) {
             j = be.getOutputSignal();
             be.setOutputSignal(i);
         }
@@ -120,7 +122,7 @@ public class AnalogSRLatchBlock extends DiodeBlock implements EntityBlock {
     }
 
     /**
-     * Called on server when {@link net.minecraft.world.level.Level#blockEvent} is called. If server returns true, then also called on the client. On the Server, this may perform additional changes to the world, like pistons replacing the block with an extended base. On the client, the update may involve replacing block entities or effects such as sounds or particles
+     * Called on server when {@link Level#blockEvent} is called. If server returns true, then also called on the client. On the Server, this may perform additional changes to the world, like pistons replacing the block with an extended base. On the client, the update may involve replacing block entities or effects such as sounds or particles
      */
     @Override
     protected boolean triggerEvent(BlockState state, Level level, BlockPos pos, int id, int param) {
@@ -131,7 +133,7 @@ public class AnalogSRLatchBlock extends DiodeBlock implements EntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new AnalogSRLatchBlockEntity(pos, state);
+        return new AnalogInverterBlockEntity(pos, state);
     }
 
     @Override

@@ -22,7 +22,7 @@ public class Mired {
     public Mired(IEventBus modEventBus, ModContainer modContainer) {
         MiredBlocks.register(modEventBus);
         MiredItems.register(modEventBus);
-        MiredBlockEntityTypes.register();
+        MiredBlockEntityTypes.register(modEventBus);
         MiredCreativeModeTabs.register(modEventBus);
     }
 

@@ -1,5 +1,6 @@
 package com.mirandnyan.mired;
 
+import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlock;
 import com.mirandnyan.mired.content.blocks.analog_sr_latch.AnalogSRLatchBlock;
 import com.mirandnyan.mired.content.blocks.CogBlock;
 import net.minecraft.world.level.block.Block;
@@ -30,6 +31,9 @@ public class MiredBlocks {
                     .requiresCorrectToolForDrops());
 
     public static final DeferredBlock<AnalogSRLatchBlock> ANALOG_SR_LATCH_BLOCK = addWithProps(AnalogSRLatchBlock::new, "analog_sr_latch",
+            BlockBehaviour.Properties.ofFullCopy(Blocks.COMPARATOR));
+
+    public static final DeferredBlock<AnalogInverterBlock> ANALOG_INVERTER_BLOCK = addWithProps(AnalogInverterBlock::new, "analog_inverter",
             BlockBehaviour.Properties.ofFullCopy(Blocks.COMPARATOR));
 
 
