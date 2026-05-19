@@ -1,6 +1,5 @@
 package com.mirandnyan.mired.content.blocks.analog_inverter;
 
-import com.mirandnyan.mired.MiredBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;

@@ -1,6 +1,6 @@
 package com.mirandnyan.mired.content.blocks.computator;
 
-import com.mirandnyan.mired.MiredBlockEntityTypes;
+import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.content.redstone.diodes.BrassDiodeScrollValueBehaviour;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
@@ -35,9 +35,8 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class AnalogComputatorBlockEntity extends SmartBlockEntity {
+public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBlockEntity {
     protected ScrollOptionBehaviour<ComputationMode> computationMode;
-    protected int outputSignal;
 
     public AnalogComputatorBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);

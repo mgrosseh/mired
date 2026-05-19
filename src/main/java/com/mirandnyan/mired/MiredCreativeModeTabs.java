@@ -22,11 +22,12 @@ public class MiredCreativeModeTabs {
                 () -> CreativeModeTab.builder()
                         .title(Component.translatable("itemGroup.mired"))
                         .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-                        .icon(() -> MiredItems.ALL_ITEMS.getFirst().get().asItem().getDefaultInstance())
+                        .icon(() -> MiredBlocks.getItem(MiredBlocks.COG_BLOCK).asStack())
                         .displayItems((parameters, output) -> {
-                            for (DeferredItem<? extends Item> item : MiredItems.ALL_ITEMS) {
-                                output.accept(item.get());
-                            }
+                            output.accept(MiredBlocks.getItem(MiredBlocks.COG_BLOCK));
+                            output.accept(MiredBlocks.getItem(MiredBlocks.ANALOG_INVERTER_BLOCK));
+                            output.accept(MiredBlocks.getItem(MiredBlocks.ANALOG_SR_LATCH_BLOCK));
+                            output.accept(MiredBlocks.getItem(MiredBlocks.COMPUTATOR));
                         }).build());
 
     public static void register(IEventBus modEventBus) {

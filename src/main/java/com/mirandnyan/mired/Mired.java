@@ -33,8 +33,6 @@ public class Mired {
         REGISTRATE.setCreativeTab(MiredCreativeModeTabs.MAIN);
 
         MiredBlocks.register();
-        MiredItems.register(modEventBus);
-        MiredBlockEntityTypes.register();
         MiredCreativeModeTabs.register(modEventBus);
 
     }
