@@ -14,23 +14,29 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.ticks.TickPriority;
 
 public class AnalogSRLatchBlock extends DiodeBlock implements EntityBlock {
-
     public static final MapCodec<AnalogSRLatchBlock> CODEC = simpleCodec(AnalogSRLatchBlock::new);
+    public static BooleanProperty POWERING = BooleanProperty.create("powering");
+    public static BooleanProperty SIDE_POWERED = BooleanProperty.create("side_powered");
+
+    public AnalogSRLatchBlock(BlockBehaviour.Properties properties) {
+        super(properties);
+        this.registerDefaultState(this.defaultBlockState()
+                .setValue(FACING, Direction.NORTH)
+                .setValue(POWERED, false)
+                .setValue(POWERING, false)
+                .setValue(SIDE_POWERED, false)
+        );
+    }
 
     @Override
     public MapCodec<AnalogSRLatchBlock> codec() {
         return CODEC;
     }
 
-    public AnalogSRLatchBlock(BlockBehaviour.Properties properties) {
-        super(properties);
-        this.registerDefaultState(
-                this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(POWERED, Boolean.valueOf(false))
-        );
-    }
 
     @Override
     protected int getDelay(BlockState state) {
@@ -131,7 +137,7 @@ public class AnalogSRLatchBlock extends DiodeBlock implements EntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new AnalogSRLatchBlockEntity(pos, state);
+        return MiredBlocks.getBlockEntity(MiredBlocks.ANALOG_SR_LATCH_BLOCK).create(pos, state);
     }
 
     @Override

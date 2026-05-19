@@ -1,6 +1,7 @@
 package com.mirandnyan.mired.content.blocks.computator;
 
 import com.mirandnyan.mired.MiredBlockEntityTypes;
+import com.mirandnyan.mired.MiredBlocks;
 import com.mojang.serialization.MapCodec;
 import com.simibubi.create.content.redstone.diodes.AbstractDiodeBlock;
 import com.simibubi.create.foundation.block.IBE;
@@ -67,7 +68,7 @@ public class AnalogComputatorBlock extends AbstractDiodeBlock implements IBE<Ana
 
     @Override
     public BlockEntityType<? extends AnalogComputatorBlockEntity> getBlockEntityType() {
-        return MiredBlockEntityTypes.ANALOG_COMPUTATOR.get();
+        return MiredBlocks.<AnalogComputatorBlockEntity>getBlockEntity(MiredBlocks.COMPUTATOR).get();
     }
 
 

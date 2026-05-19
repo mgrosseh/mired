@@ -10,5 +10,6 @@
   "block.mired.analog_inverter": "Analog Inverter",
   "item.mired.analog_inverter": "Analog Inverter",
 
-  "block.mired.analog_computator.computation_mode": "Computation Mode"
+  "block.mired.analog_computator.computation_mode": "Computation Mode",
+  "block.mired.analog_computator": "Analog Computator"
 }

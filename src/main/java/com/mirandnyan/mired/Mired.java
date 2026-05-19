@@ -12,8 +12,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModContainer;
 
-//import dev.ryanhcode.sable.neoforge.SableNeoForge;
-
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Mired.MOD_ID)
 public class Mired {
@@ -34,9 +32,9 @@ public class Mired {
 
         REGISTRATE.setCreativeTab(MiredCreativeModeTabs.MAIN);
 
-        MiredBlocks.register(modEventBus);
+        MiredBlocks.register();
         MiredItems.register(modEventBus);
-        MiredBlockEntityTypes.register(modEventBus);
+        MiredBlockEntityTypes.register();
         MiredCreativeModeTabs.register(modEventBus);
 
     }

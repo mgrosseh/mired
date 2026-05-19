@@ -1,4 +1,4 @@
-package com.mirandnyan.mired.content.blocks;
+package com.mirandnyan.mired.content.blocks.cog_block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

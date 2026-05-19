@@ -5,13 +5,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class AnalogInverterBlockEntity extends BlockEntity {
     private int output;
 
-    public AnalogInverterBlockEntity(BlockPos pos, BlockState blockState) {
-        super(MiredBlockEntityTypes.ANALOG_INVERTER.get(), pos, blockState);
+    public AnalogInverterBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
+        super(type, pos, blockState);
     }
 
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {

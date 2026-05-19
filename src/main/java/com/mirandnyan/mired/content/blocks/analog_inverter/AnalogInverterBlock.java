@@ -133,7 +133,7 @@ public class AnalogInverterBlock extends DiodeBlock implements EntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new AnalogInverterBlockEntity(pos, state);
+        return MiredBlocks.getBlockEntity(MiredBlocks.ANALOG_INVERTER_BLOCK).create(pos, state);
     }
 
     @Override
