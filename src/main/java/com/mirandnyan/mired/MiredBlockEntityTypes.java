@@ -2,6 +2,9 @@ package com.mirandnyan.mired;
 
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockEntity;
 import com.mirandnyan.mired.content.blocks.analog_sr_latch.AnalogSRLatchBlockEntity;
+import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockEntity;
+import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -12,6 +15,8 @@ import java.util.function.Supplier;
 import static com.mirandnyan.mired.Mired.MOD_ID;
 
 public class MiredBlockEntityTypes {
+    private static final CreateRegistrate REGISTRATE = Mired.getRegistrate();
+
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MOD_ID);
 
     public static final Supplier<BlockEntityType<AnalogSRLatchBlockEntity>> ANALOG_SR_LATCH = BLOCK_ENTITY_TYPES.register("analog_sr_latch_block_entity",
@@ -19,6 +24,11 @@ public class MiredBlockEntityTypes {
 
     public static final Supplier<BlockEntityType<AnalogInverterBlockEntity>> ANALOG_INVERTER = BLOCK_ENTITY_TYPES.register("analog_inverter_block_entity",
             () -> BlockEntityType.Builder.of(AnalogInverterBlockEntity::new, MiredBlocks.ANALOG_INVERTER_BLOCK.get()).build(null));
+
+    public static final BlockEntityEntry<AnalogComputatorBlockEntity> ANALOG_COMPUTATOR = REGISTRATE
+            .blockEntity("computator", AnalogComputatorBlockEntity::new)
+            .validBlock(MiredBlocks.COMPUTATOR)
+            .register();
 
     // Load this class
     public static void register(IEventBus eventBus) {

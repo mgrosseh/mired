@@ -33,8 +33,13 @@ repositories {
     maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
     maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
 
-    maven { url = "https://maven.ryanhcode.dev/releases" } // Aeronautics
+    maven { url = "https://maven.ryanhcode.dev/releases" } // Simulated, Aeronautics, Offroad, Sable
     maven { url = "https://maven.blamejared.com/" } // Veil
+
+    maven { url = "https://maven.blamejared.com/" } // JEI (Required by Simulated)
+    maven { url = "https://maven.theillusivec4.top/" } // Curios API (Required by Simulated)
+    maven { url = "https://maven.squiddev.cc" } // CC Tweaked (Required by Simulated)
+    maven { url = "https://api.modrinth.com/maven" } // Nature's Compass (Required by Simulated)
 
     // Curse Maven
     exclusiveContent {
@@ -146,6 +151,9 @@ dependencies {
     // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
     // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
 
+
+    implementation fileTree(dir: 'libs', include: '*.jar', exclude: '')
+
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
@@ -170,6 +178,13 @@ dependencies {
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    // "Aeronautics"
+    implementation("dev.simulated_team.simulated:simulated-neoforge-${minecraft_version}:${simulated_version}")
+    implementation("dev.ryanhcode.offroad:offroad-neoforge-${minecraft_version}:${offroad_version}")
+    implementation("dev.eriksonn.aeronautics:aeronautics-neoforge-${minecraft_version}:${aeronautics_version}")
+
+    api "dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

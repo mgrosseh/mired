@@ -3,6 +3,9 @@ package com.mirandnyan.mired;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlock;
 import com.mirandnyan.mired.content.blocks.analog_sr_latch.AnalogSRLatchBlock;
 import com.mirandnyan.mired.content.blocks.CogBlock;
+import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;
+import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
@@ -15,10 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
+import static com.mirandnyan.mired.Mired.REGISTRATE;
 import static com.mirandnyan.mired.MiredItems.addBlockItem;
 import static com.mirandnyan.mired.Mired.MOD_ID;
+import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 
 public class MiredBlocks {
+
+    private static final CreateRegistrate REGISTRATE = Mired.getRegistrate();
 
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MOD_ID);
 
@@ -29,6 +36,12 @@ public class MiredBlocks {
                     .strength(3.0f, 6.0f)
                     .sound(SoundType.COPPER)
                     .requiresCorrectToolForDrops());
+
+    public static final BlockEntry<AnalogComputatorBlock> COMPUTATOR = REGISTRATE.block("analog_computator", AnalogComputatorBlock::new)
+            .initialProperties(() -> Blocks.REPEATER)
+            .item()
+            .transform(customItemModel())
+            .register();
 
     public static final DeferredBlock<AnalogSRLatchBlock> ANALOG_SR_LATCH_BLOCK = addWithProps(AnalogSRLatchBlock::new, "analog_sr_latch",
             BlockBehaviour.Properties.ofFullCopy(Blocks.COMPARATOR));

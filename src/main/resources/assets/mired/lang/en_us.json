@@ -8,5 +8,7 @@
   "item.mired.analog_sr_latch": "Analog SR-Latch",
 
   "block.mired.analog_inverter": "Analog Inverter",
-  "item.mired.analog_inverter": "Analog Inverter"
+  "item.mired.analog_inverter": "Analog Inverter",
+
+  "block.mired.analog_computator.computation_mode": "Computation Mode"
 }

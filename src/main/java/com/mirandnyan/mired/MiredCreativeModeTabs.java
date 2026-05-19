@@ -7,6 +7,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -16,7 +17,7 @@ public class MiredCreativeModeTabs {
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
 
-    static {
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MAIN =
         CREATIVE_MODE_TABS.register("mired_tab",
                 () -> CreativeModeTab.builder()
                         .title(Component.translatable("itemGroup.mired"))
@@ -27,7 +28,6 @@ public class MiredCreativeModeTabs {
                                 output.accept(item.get());
                             }
                         }).build());
-    }
 
     public static void register(IEventBus modEventBus) {
         CREATIVE_MODE_TABS.register(modEventBus);

@@ -4,8 +4,8 @@
 	"parent": "block/block",
 	"textures": {
 		"4": "create:block/nixie_tube",
-		"5": "create:block/diodes/powered_toggle_latch/powered_powering",
-		"top": "create:block/diodes/powered_toggle_latch/idle",
+		"5": "create:block/diodes/powered_latch/powering",
+		"top": "create:block/diodes/powered_latch/idle",
 		"torch": "block/redstone_torch",
 		"particle": "block/smooth_stone",
 		"smooth_stone": "block/smooth_stone"
@@ -14,8 +14,8 @@
         "base": {
             "render_type": "minecraft:cutout",
             "textures": {
-		        "5": "create:block/diodes/powered_toggle_latch/powered_powering",
-		        "top": "create:block/diodes/powered_toggle_latch/idle",
+		        "5": "create:block/diodes/powered_latch/powering",
+		        "top": "create:block/diodes/powered_latch/idle",
 		        "torch": "block/redstone_torch",
 		        "particle": "block/smooth_stone",
 		        "smooth_stone": "block/smooth_stone"
