@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"render_type": "cutout",
 	"textures": {
-		"1": "simulated:block/redstone_accumulator/diode",
-		"particle": "simulated:block/redstone_accumulator/diode"
+		"1": "mired:block/analog_computator/diode",
+		"particle": "mired:block/analog_computator/diode"
 	},
 	"elements": [
 		{

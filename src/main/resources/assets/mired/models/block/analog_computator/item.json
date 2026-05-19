@@ -1,11 +1,11 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"3": "simulated:block/redstone_accumulator/diode_off",
+		"3": "mired:block/analog_computator/diode_off",
 		"4": "create:block/diodes/brass_diode_base",
 		"6": "block/redstone_torch_off",
 		"particle": "create:block/diodes/brass_diode_base",
-		"top": "simulated:block/redstone_accumulator/block"
+		"top": "mired:block/analog_computator/block"
 	},
 	"elements": [
 		{

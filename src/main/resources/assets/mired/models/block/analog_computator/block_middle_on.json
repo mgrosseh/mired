@@ -1,6 +1,6 @@
 {
-	"parent": "simulated:block/redstone_accumulator/block_middle_off",
+	"parent": "mired:block/analog_computator/block_middle_off",
 	"textures": {
-		"top": "simulated:block/redstone_accumulator/block_powered"
+		"top": "mired:block/analog_computator/block_powered"
 	}
 }

@@ -1,6 +1,5 @@
 package com.mirandnyan.mired.content.blocks.analog_sr_latch;
 
-import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockStateGen;
 import com.mirandnyan.mired.helpers.BlockStateGenerator;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;

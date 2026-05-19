@@ -20,8 +20,8 @@ public class AnalogInverterBlockStateGen extends BlockStateGenerator<AnalogInver
     @Override
     public <P extends AnalogInverterBlock> void generator(DataGenContext<Block, P> ctx, RegistrateBlockstateProvider prov) {
 
-        final ModelFile off = sub(prov, "block_off");
-        final ModelFile on = sub(prov, "block_on");
+        final ModelFile off = block_model(prov, "block_off");
+        final ModelFile on = block_model(prov, "block_on");
 
         final MultiPartBlockStateBuilder builder = prov.getMultipartBuilder(ctx.get());
 

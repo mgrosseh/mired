@@ -19,13 +19,13 @@ public class AnalogComputatorBlockStateGen extends BlockStateGenerator<AnalogCom
     @Override
     public <P extends AnalogComputatorBlock> void generator(DataGenContext<Block, P> ctx, RegistrateBlockstateProvider prov) {
 
-        final ModelFile backOff = sub(prov, "block_back_off");
-        final ModelFile backOn = sub(prov, "block_back_on");
-        final ModelFile front = sub(prov, "block_front");
-        final ModelFile middleOff = sub(prov, "block_middle_off");
-        final ModelFile middleOn = sub(prov, "block_middle_on");
-        final ModelFile torchOff = sub(prov, "torch_off");
-        final ModelFile torchOn = sub(prov, "torch_on");
+        final ModelFile backOff = block_model(prov, "block_back_off");
+        final ModelFile backOn = block_model(prov, "block_back_on");
+        final ModelFile front = block_model(prov, "block_front");
+        final ModelFile middleOff = block_model(prov, "block_middle_off");
+        final ModelFile middleOn = block_model(prov, "block_middle_on");
+        final ModelFile torchOff = block_model(prov, "torch_off");
+        final ModelFile torchOn = block_model(prov, "torch_on");
 
         final MultiPartBlockStateBuilder builder = prov.getMultipartBuilder(ctx.get());
 
