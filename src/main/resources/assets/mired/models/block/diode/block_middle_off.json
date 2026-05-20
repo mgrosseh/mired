@@ -3,6 +3,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"4": "create:block/diodes/brass_diode_base",
+		"2": "simulated:block/redstone_accumulator/diode_off",
 		"particle": "create:block/diodes/brass_diode_base",
 		"top": "mired:block/diode/block"
 	},
@@ -14,7 +15,7 @@
 			"faces": {
 				"east": {"uv": [14, 4, 16, 12], "rotation": 90, "texture": "#4", "cullface": "east"},
 				"west": {"uv": [0, 4, 2, 12], "rotation": 270, "texture": "#4", "cullface": "west"},
-				"up": {"uv": [16, 12, 0, 4], "texture": "#top"},
+				"up": {"uv": [16, 12, 0, 4], "texture": "#top", "cullface":  "up"},
 				"down": {"uv": [0, 4, 16, 12], "rotation": 180, "texture": "#4", "cullface": "down"}
 			}
 		},

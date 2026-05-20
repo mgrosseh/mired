@@ -1,5 +1,5 @@
 {
-	"parent": "mired:block/analog_computator/block_middle_off",
+	"parent": "mired:block/diode/block_middle_off",
 	"textures": {
 		"top": "mired:block/diode/block_powered"
 	}

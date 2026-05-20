@@ -1,13 +1,14 @@
 {
   "render_type": "minecraft:translucent",
+  "ambientocclusion": false,
   "textures": {
     "4": "create:block/nixie_tube"
   },
   "elements": [
     {
       "name": "tube",
-      "from": [5, 6, 5],
-      "to": [11, 15, 11],
+      "from": [5, 3, 5],
+      "to": [11, 12, 11],
       "faces": {
         "north": {"uv": [0, 1, 6, 10], "texture": "#4"},
         "east": {"uv": [0, 1, 6, 10], "texture": "#4"},
