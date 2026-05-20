@@ -44,4 +44,8 @@ public class Mired {
     public static ResourceLocation path(final String path) {
         return ResourceLocation.tryBuild(MOD_ID, path);
     }
+
+    public static ResourceLocation asResource(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    }
 }

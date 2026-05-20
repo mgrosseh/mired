@@ -1,39 +1,25 @@
 package com.mirandnyan.mired.content.blocks.computator;
 
+import com.mirandnyan.mired.MiredIcons;
 import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.simibubi.create.content.redstone.diodes.BrassDiodeScrollValueBehaviour;
-import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.ValueBoxTransform;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.INamedIconOptions;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollOptionBehaviour;
-import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollValueBehaviour;
 import com.simibubi.create.foundation.gui.AllIcons;
 import dev.engine_room.flywheel.lib.transform.TransformStack;
 import dev.simulated_team.simulated.content.blocks.redstone.redstone_accumulator.RedstoneAccumulatorBlock;
 import net.createmod.catnip.lang.Lang;
 import net.createmod.catnip.math.AngleHelper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.WorldlyContainer;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-import javax.annotation.Nullable;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBlockEntity {
     protected ScrollOptionBehaviour<ComputationMode> computationMode;
@@ -65,10 +51,10 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
     }
 
     public enum ComputationMode implements INamedIconOptions {
-        ADDITION(AllIcons.I_ADD),
-        SUBTRACTION(AllIcons.I_ADD),
-        MULTIPLICATION(AllIcons.I_ADD),
-        DIVISION(AllIcons.I_ADD),
+        ADDITION(MiredIcons.I_ADD),
+        SUBTRACTION(MiredIcons.I_SUBTRACT),
+        MULTIPLICATION(MiredIcons.I_MULTIPLY),
+        DIVISION(MiredIcons.I_DIVIDE),
         ;
 
         private final String translationKey;
