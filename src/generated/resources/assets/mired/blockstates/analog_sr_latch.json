@@ -37,7 +37,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube"
+        "model": "mired:block/analog_sr_latch/analog_lever_base"
       },
       "when": {
         "facing": "north"
@@ -80,7 +80,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube"
+        "model": "mired:block/analog_sr_latch/analog_lever_base"
       },
       "when": {
         "facing": "north"
@@ -123,7 +123,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube"
+        "model": "mired:block/analog_sr_latch/analog_lever_base"
       },
       "when": {
         "facing": "north"
@@ -166,7 +166,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube"
+        "model": "mired:block/analog_sr_latch/analog_lever_base"
       },
       "when": {
         "facing": "north"
@@ -209,7 +209,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube"
+        "model": "mired:block/analog_sr_latch/analog_lever_base"
       },
       "when": {
         "facing": "north"
@@ -252,7 +252,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube"
+        "model": "mired:block/analog_sr_latch/analog_lever_base"
       },
       "when": {
         "facing": "north"
@@ -295,7 +295,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube"
+        "model": "mired:block/analog_sr_latch/analog_lever_base"
       },
       "when": {
         "facing": "north"
@@ -338,7 +338,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube"
+        "model": "mired:block/analog_sr_latch/analog_lever_base"
       },
       "when": {
         "facing": "north"
@@ -385,7 +385,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 180
       },
       "when": {
@@ -433,7 +433,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 180
       },
       "when": {
@@ -481,7 +481,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 180
       },
       "when": {
@@ -529,7 +529,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 180
       },
       "when": {
@@ -577,7 +577,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 180
       },
       "when": {
@@ -625,7 +625,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 180
       },
       "when": {
@@ -673,7 +673,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 180
       },
       "when": {
@@ -721,7 +721,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 180
       },
       "when": {
@@ -769,7 +769,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 270
       },
       "when": {
@@ -817,7 +817,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 270
       },
       "when": {
@@ -865,7 +865,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 270
       },
       "when": {
@@ -913,7 +913,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 270
       },
       "when": {
@@ -961,7 +961,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 270
       },
       "when": {
@@ -1009,7 +1009,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 270
       },
       "when": {
@@ -1057,7 +1057,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 270
       },
       "when": {
@@ -1105,7 +1105,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 270
       },
       "when": {
@@ -1153,7 +1153,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 90
       },
       "when": {
@@ -1201,7 +1201,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 90
       },
       "when": {
@@ -1249,7 +1249,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 90
       },
       "when": {
@@ -1297,7 +1297,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 90
       },
       "when": {
@@ -1345,7 +1345,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 90
       },
       "when": {
@@ -1393,7 +1393,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 90
       },
       "when": {
@@ -1441,7 +1441,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 90
       },
       "when": {
@@ -1489,7 +1489,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_sr_latch/tube",
+        "model": "mired:block/analog_sr_latch/analog_lever_base",
         "y": 90
       },
       "when": {

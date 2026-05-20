@@ -1,6 +1,7 @@
 package com.mirandnyan.mired;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import net.createmod.catnip.lang.LangBuilder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -23,9 +24,8 @@ public class Mired {
     public static IEventBus modEventBus;
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID)
             .defaultCreativeTab((ResourceKey<CreativeModeTab>) null);
+    // TODO Registrate creative tab
 
-    // The constructor for the mod class is the first code that is run when your mod is loaded.
-    // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public Mired(IEventBus eventBus, ModContainer modContainer) {
         modEventBus = eventBus;
         REGISTRATE.registerEventListeners(modEventBus);
@@ -35,10 +35,16 @@ public class Mired {
         MiredBlocks.register();
         MiredCreativeModeTabs.register(modEventBus);
 
+        MiredLang.register();
     }
 
     public static CreateRegistrate getRegistrate() {
         return REGISTRATE;
+    }
+
+
+    public static LangBuilder lang() {
+        return new LangBuilder(MOD_ID);
     }
 
     public static ResourceLocation path(final String path) {

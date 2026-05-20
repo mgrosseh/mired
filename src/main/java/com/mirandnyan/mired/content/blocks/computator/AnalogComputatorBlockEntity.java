@@ -1,5 +1,6 @@
 package com.mirandnyan.mired.content.blocks.computator;
 
+import com.mirandnyan.mired.MiredLang;
 import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -9,7 +10,6 @@ import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollOp
 import com.simibubi.create.foundation.gui.AllIcons;
 import dev.engine_room.flywheel.lib.transform.TransformStack;
 import dev.simulated_team.simulated.content.blocks.redstone.redstone_accumulator.RedstoneAccumulatorBlock;
-import net.createmod.catnip.lang.Lang;
 import net.createmod.catnip.math.AngleHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -49,7 +49,7 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
     @Override
     public void addBehaviours(final List<BlockEntityBehaviour> behaviours) {
         this.computationMode = new ScrollOptionBehaviour<>(ComputationMode.class,
-                Component.translatable("block.mired.analog_computator.computation_mode"),
+                Component.translatable(MiredLang.COMPUTATION_MODE.translationKey),
                 this,
                 new AnalogComputatorValueBoxTransform());
 
@@ -67,18 +67,18 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
 //        SUBTRACTION(MiredIcons.I_SUBTRACT),
 //        MULTIPLICATION(MiredIcons.I_MULTIPLY),
 //        DIVISION(MiredIcons.I_DIVIDE),
-        ADDITION(AllIcons.I_ADD),
-        SUBTRACTION(AllIcons.I_ROLLER_PAVE),
-        MULTIPLICATION(AllIcons.I_DISABLE),
-        DIVISION(AllIcons.I_FLIP),
+        ADDITION(AllIcons.I_ADD, MiredLang.ADDITION_MODE.translationKey),
+        SUBTRACTION(AllIcons.I_ROLLER_PAVE, MiredLang.SUBTRACTION_MODE.translationKey),
+        MULTIPLICATION(AllIcons.I_DISABLE, MiredLang.MULTIPLICATION_MODE.translationKey),
+        DIVISION(AllIcons.I_FLIP, MiredLang.DIVISION_MODE.translationKey),
         ;
 
         private final String translationKey;
         private final AllIcons icon;
 
-        ComputationMode(AllIcons icon) {
+        ComputationMode(AllIcons icon, String translationKey) {
             this.icon = icon;
-            this.translationKey = "mired.analog_computator.computation_mode." + Lang.asId(name());
+            this.translationKey = translationKey;
         }
 
         @Override
@@ -95,7 +95,7 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
     private static class AnalogComputatorValueBoxTransform extends ValueBoxTransform {
         @Override
         public Vec3 getLocalOffset(final LevelAccessor levelAccessor, final BlockPos blockPos, final BlockState blockState) {
-            return new Vec3(0.5, 6.6f / 16.0f, 0.5);
+            return new Vec3(0.5, 3.8f / 16.0f, 0.5);
         }
 
         @Override

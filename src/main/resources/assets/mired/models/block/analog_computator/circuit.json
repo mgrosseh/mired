@@ -1,0 +1,38 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "create:block/bell",
+		"1": "create:block/standard_track_crossing",
+		"particle": "create:block/bell"
+	},
+	"elements": [
+		{
+			"name": "circut_base",
+			"from": [5, 3, 5],
+			"to": [11, 3.3, 11],
+			"faces": {
+				"north": {"uv": [5, 4.7, 11, 5], "texture": "#1"},
+				"east": {"uv": [11, 5.2, 11.3, 11.2], "rotation": 90, "texture": "#1"},
+				"south": {"uv": [5, 11.2, 11, 11.5], "texture": "#1"},
+				"west": {"uv": [4.5, 5, 4.8, 11], "rotation": 270, "texture": "#1"},
+				"up": {"uv": [5, 5, 11, 11], "texture": "#1"},
+				"down": {"uv": [5, 5, 11, 11], "texture": "#1"}
+			}
+		},
+		{
+			"name": "circut",
+			"from": [5.5, 3.3, 5.5],
+			"to": [10.5, 4, 10.5],
+			"faces": {
+				"north": {"uv": [0, 15.3, 5, 16], "texture": "#0"},
+				"east": {"uv": [0, 15.3, 5, 16], "texture": "#0"},
+				"south": {"uv": [0, 15.3, 5, 16], "texture": "#0"},
+				"west": {"uv": [0, 15.3, 5, 16], "texture": "#0"},
+				"up": {"uv": [0, 10, 5, 15], "texture": "#0"},
+				"down": {"uv": [0, 10, 5, 15], "texture": "#0"}
+			}
+		}
+	]
+}

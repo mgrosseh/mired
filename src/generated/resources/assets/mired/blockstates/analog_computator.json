@@ -37,6 +37,14 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front"
       },
       "when": {
@@ -68,6 +76,14 @@
       "when": {
         "facing": "north",
         "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit"
+      },
+      "when": {
+        "facing": "north"
       }
     },
     {
@@ -107,6 +123,14 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front"
       },
       "when": {
@@ -142,6 +166,14 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front"
       },
       "when": {
@@ -173,6 +205,14 @@
       "when": {
         "facing": "north",
         "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit"
+      },
+      "when": {
+        "facing": "north"
       }
     },
     {
@@ -212,6 +252,14 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front"
       },
       "when": {
@@ -243,6 +291,14 @@
       "when": {
         "facing": "north",
         "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit"
+      },
+      "when": {
+        "facing": "north"
       }
     },
     {
@@ -282,6 +338,14 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 180
       },
@@ -321,6 +385,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 180
       },
@@ -356,6 +429,15 @@
       "when": {
         "facing": "south",
         "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
       }
     },
     {
@@ -399,6 +481,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 180
       },
@@ -438,6 +529,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 180
       },
@@ -473,6 +573,15 @@
       "when": {
         "facing": "south",
         "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
       }
     },
     {
@@ -516,6 +625,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 180
       },
@@ -555,6 +673,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 180
       },
@@ -590,6 +717,15 @@
       "when": {
         "facing": "south",
         "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
       }
     },
     {
@@ -633,6 +769,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 270
       },
@@ -668,6 +813,15 @@
       "when": {
         "facing": "west",
         "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
       }
     },
     {
@@ -711,6 +865,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 270
       },
@@ -750,6 +913,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 270
       },
@@ -785,6 +957,15 @@
       "when": {
         "facing": "west",
         "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
       }
     },
     {
@@ -828,6 +1009,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 270
       },
@@ -867,6 +1057,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 270
       },
@@ -902,6 +1101,15 @@
       "when": {
         "facing": "west",
         "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
       }
     },
     {
@@ -945,6 +1153,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 90
       },
@@ -980,6 +1197,15 @@
       "when": {
         "facing": "east",
         "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
       }
     },
     {
@@ -1023,6 +1249,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 90
       },
@@ -1062,6 +1297,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 90
       },
@@ -1097,6 +1341,15 @@
       "when": {
         "facing": "east",
         "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
       }
     },
     {
@@ -1140,6 +1393,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 90
       },
@@ -1179,6 +1441,15 @@
     },
     {
       "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
         "model": "mired:block/diode/block_front",
         "y": 90
       },
@@ -1214,6 +1485,15 @@
       "when": {
         "facing": "east",
         "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_computator/circuit",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
       }
     }
   ]

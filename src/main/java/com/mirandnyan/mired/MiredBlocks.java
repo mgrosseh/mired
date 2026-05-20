@@ -3,10 +3,8 @@ package com.mirandnyan.mired;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlock;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockEntity;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockStateGen;
-import com.mirandnyan.mired.content.blocks.analog_sr_latch.AnalogSRLatchBlock;
-import com.mirandnyan.mired.content.blocks.analog_sr_latch.AnalogSRLatchBlockStateGen;
+import com.mirandnyan.mired.content.blocks.analog_sr_latch.*;
 import com.mirandnyan.mired.content.blocks.cog_block.CogBlock;
-import com.mirandnyan.mired.content.blocks.analog_sr_latch.AnalogSRLatchBlockEntity;
 import com.mirandnyan.mired.content.blocks.cog_block.CogBlockStateGen;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockEntity;
@@ -62,10 +60,15 @@ public class MiredBlocks {
     public static final BlockEntry<AnalogSRLatchBlock> ANALOG_SR_LATCH_BLOCK = REGISTRATE.block("analog_sr_latch", AnalogSRLatchBlock::new)
             .initialProperties(() -> Blocks.COMPARATOR)
             .blockstate(AnalogSRLatchBlockStateGen.instance.generate())
-            .blockEntity(AnalogSRLatchBlockEntity::new)
-            .build()
             .item()
             .transform(customItemModel())
+            .register();
+
+    public static final BlockEntityEntry<AnalogSRLatchBlockEntity> ANALOG_SR_LATCH_BLOCK_ENTITY = REGISTRATE
+            .blockEntity("analog_sr_latch", AnalogSRLatchBlockEntity::new)
+            .visual(() -> AnalogSRLatchVisual::new, false)
+            .validBlock(ANALOG_SR_LATCH_BLOCK)
+            .renderer(() -> AnalogSRLatchRenderer::new)
             .register();
 
 

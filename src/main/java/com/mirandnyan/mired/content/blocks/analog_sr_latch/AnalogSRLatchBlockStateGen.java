@@ -14,10 +14,10 @@ public class AnalogSRLatchBlockStateGen extends DiodeBlockStateGenerator<AnalogS
         super("analog_sr_latch");
     }
 
-    private ModelFile tube;
+    private ModelFile lever_base;
 
     protected void initModelPart(RegistrateBlockstateProvider prov) {
-        tube = block_model(prov, "tube");
+        lever_base = block_model(prov, "analog_lever_base");
     }
 
     protected void addModelPart(final Direction facing, final int yRot,
@@ -25,7 +25,7 @@ public class AnalogSRLatchBlockStateGen extends DiodeBlockStateGenerator<AnalogS
                                 MultiPartBlockStateBuilder builder)
     {
         builder.part()
-                .modelFile(tube)
+                .modelFile(lever_base)
                 .rotationY(yRot)
                 .addModel()
                 .condition(AnalogComputatorBlock.FACING, facing)

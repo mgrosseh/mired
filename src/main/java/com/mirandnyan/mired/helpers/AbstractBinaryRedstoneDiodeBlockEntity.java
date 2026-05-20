@@ -87,10 +87,10 @@ public abstract class AbstractBinaryRedstoneDiodeBlockEntity extends SmartBlockE
 
     public void setOutputSignal(final int output) {
         boolean update = output != this.outputSignal;
-        int old = this.outputSignal;
         this.outputSignal = Mth.clamp(output, 0, 15);
         if (update) {
             this.updateFacingBlock(this.getBlockState().getBlock(), this.level);
+            this.sendData();
         }
     }
 

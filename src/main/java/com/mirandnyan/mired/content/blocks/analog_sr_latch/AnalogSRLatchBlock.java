@@ -23,6 +23,8 @@ import net.minecraft.world.ticks.TickPriority;
 public class AnalogSRLatchBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogSRLatchBlockEntity> {
     public static final MapCodec<AnalogSRLatchBlock> CODEC = simpleCodec(AnalogSRLatchBlock::new);
 
+    // TODO: make togglable only update on rising edge
+
     public AnalogSRLatchBlock(final Properties builder) {
         super(builder);
         this.registerDefaultState(this.defaultBlockState()

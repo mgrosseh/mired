@@ -2,5 +2,10 @@
   "block.mired.analog_computator": "ɹoʇɐʇndɯoƆ boןɐuⱯ",
   "block.mired.analog_inverter": "ɹǝʇɹǝʌuI boןɐuⱯ",
   "block.mired.analog_sr_latch": "ɥɔʇɐꞀ ɹS boןɐuⱯ",
-  "block.mired.cog_block": "ʞɔoןᗺ boƆ"
+  "block.mired.cog_block": "ʞɔoןᗺ boƆ",
+  "mired.analog_computator.computation_mode": "ǝpoW uoıʇɐʇndɯoƆ",
+  "mired.analog_computator.computation_mode.addition": "ǝpoW uoıʇıppⱯ",
+  "mired.analog_computator.computation_mode.division": "ǝpoW uoıʇıppⱯ",
+  "mired.analog_computator.computation_mode.multiplication": "ǝpoW uoıʇıppⱯ",
+  "mired.analog_computator.computation_mode.subtraction": "ǝpoW uoıʇıppⱯ"
 }

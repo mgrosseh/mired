@@ -1,5 +1,5 @@
 {
-  "render_type": "minecraft:translucent",
+  "render_type": "translucent",
   "ambientocclusion": false,
   "textures": {
     "4": "create:block/nixie_tube"

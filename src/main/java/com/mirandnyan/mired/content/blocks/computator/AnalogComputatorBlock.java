@@ -72,7 +72,7 @@ public class AnalogComputatorBlock extends AbstractBinaryRedstoneDiodeBlock<Anal
     public VoxelShape getShape(final BlockState pState, final BlockGetter pLevel, final BlockPos pPos, final CollisionContext pContext) {
         return Shapes.or(
                 Block.box(0, 0, 0, 16, 2, 16),
-                Block.box(4, 2, 4, 12, 7, 12)
+                Block.box(4, 2, 4, 12, 3, 12)
         );
     }
 }
