@@ -4,7 +4,7 @@
 	"textures": {
 		"4": "create:block/diodes/brass_diode_base",
 		"particle": "create:block/diodes/brass_diode_base",
-		"top": "mired:block/analog_computator/block"
+		"top": "mired:block/diode/block"
 	},
 	"elements": [
 		{

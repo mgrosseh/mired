@@ -1,3 +1,1780 @@
 {
-  "multipart": []
+  "multipart": [
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on"
+      },
+      "when": {
+        "facing": "north",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on"
+      },
+      "when": {
+        "facing": "north",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off"
+      },
+      "when": {
+        "facing": "north",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on"
+      },
+      "when": {
+        "facing": "north",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on"
+      },
+      "when": {
+        "facing": "north",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off"
+      },
+      "when": {
+        "facing": "north",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off"
+      },
+      "when": {
+        "facing": "north",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off"
+      },
+      "when": {
+        "facing": "north",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on"
+      },
+      "when": {
+        "facing": "north",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on"
+      },
+      "when": {
+        "facing": "north",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off"
+      },
+      "when": {
+        "facing": "north",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on"
+      },
+      "when": {
+        "facing": "north",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on"
+      },
+      "when": {
+        "facing": "north",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off"
+      },
+      "when": {
+        "facing": "north",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off"
+      },
+      "when": {
+        "facing": "north",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off"
+      },
+      "when": {
+        "facing": "north",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powering": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_on",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "side_powered": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_front",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_back_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/block_middle_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "side_powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/diode/torch_off",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powering": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/connector",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/analog_sr_latch/tube",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    }
+  ]
 }

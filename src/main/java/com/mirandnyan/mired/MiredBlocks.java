@@ -12,6 +12,7 @@ import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockEntity;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockStateGen;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
@@ -37,7 +38,7 @@ public class MiredBlocks {
                     .sound(SoundType.COPPER)
                     .requiresCorrectToolForDrops())
             .item()
-            .build()
+            .transform(customItemModel())
             .register();
 
     public static final BlockEntry<AnalogComputatorBlock> COMPUTATOR = REGISTRATE.block("analog_computator", AnalogComputatorBlock::new)
@@ -55,7 +56,7 @@ public class MiredBlocks {
             .blockEntity(AnalogInverterBlockEntity::new)
             .build()
             .item()
-            .build()
+            .transform(customItemModel())
             .register();
 
     public static final BlockEntry<AnalogSRLatchBlock> ANALOG_SR_LATCH_BLOCK = REGISTRATE.block("analog_sr_latch", AnalogSRLatchBlock::new)
@@ -64,7 +65,7 @@ public class MiredBlocks {
             .blockEntity(AnalogSRLatchBlockEntity::new)
             .build()
             .item()
-            .build()
+            .transform(customItemModel())
             .register();
 
 

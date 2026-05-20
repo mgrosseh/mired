@@ -1,6 +1,6 @@
 {
 	"parent": "mired:block/analog_computator/block_back_off",
 	"textures": {
-		"top": "mired:block/analog_computator/block_powered"
+		"top": "mired:block/diode/block_powered"
 	}
 }

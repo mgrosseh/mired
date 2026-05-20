@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:air"
+          "name": "mired:analog_sr_latch"
         }
       ],
       "rolls": 1.0
