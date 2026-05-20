@@ -1,9 +1,12 @@
 package com.mirandnyan.mired.content.blocks.analog_sr_latch;
 
+import com.mirandnyan.mired.Mired;
 import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlock;
 import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
+import dev.simulated_team.simulated.content.blocks.redstone.redstone_accumulator.RedstoneAccumulatorBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -11,6 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
+import java.util.Optional;
 
 public class AnalogSRLatchBlockEntity extends AbstractBinaryRedstoneDiodeBlockEntity {
 
@@ -19,8 +23,13 @@ public class AnalogSRLatchBlockEntity extends AbstractBinaryRedstoneDiodeBlockEn
     }
 
     @Override
-    public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
+    public void addBehaviours(List<BlockEntityBehaviour> behaviours) { }
 
+    @Override
+    protected Optional<Integer> calculateOutputSignal(boolean backSignal, boolean sideSignal) {
+        if (sideSignal) {
+            return Optional.of(backSignal ? this.backInputSignal : 0);
+        }
+        return Optional.empty();
     }
-
 }

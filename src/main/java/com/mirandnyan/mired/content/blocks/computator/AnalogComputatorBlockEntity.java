@@ -1,6 +1,5 @@
 package com.mirandnyan.mired.content.blocks.computator;
 
-import com.mirandnyan.mired.MiredIcons;
 import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -20,12 +19,25 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
+import java.util.Optional;
 
 public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBlockEntity {
     protected ScrollOptionBehaviour<ComputationMode> computationMode;
 
     public AnalogComputatorBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
+    }
+
+    @Override
+    protected Optional<Integer> calculateOutputSignal(boolean backSignal, boolean sideSignal) {
+        if (!backSignal && !sideSignal)
+            return Optional.empty();
+        return switch (computationMode.get()) {
+            case ADDITION -> Optional.of(this.getBackInputSignal() + this.getSideInputSignal());
+            case SUBTRACTION -> Optional.of(this.getBackInputSignal() - this.getSideInputSignal());
+            case MULTIPLICATION -> Optional.of(this.getBackInputSignal() * this.getSideInputSignal());
+            case DIVISION -> Optional.of(this.getBackInputSignal() / this.getSideInputSignal());
+        };
     }
 
     @Override
@@ -51,10 +63,14 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
     }
 
     public enum ComputationMode implements INamedIconOptions {
-        ADDITION(MiredIcons.I_ADD),
-        SUBTRACTION(MiredIcons.I_SUBTRACT),
-        MULTIPLICATION(MiredIcons.I_MULTIPLY),
-        DIVISION(MiredIcons.I_DIVIDE),
+//        ADDITION(MiredIcons.I_ADD),
+//        SUBTRACTION(MiredIcons.I_SUBTRACT),
+//        MULTIPLICATION(MiredIcons.I_MULTIPLY),
+//        DIVISION(MiredIcons.I_DIVIDE),
+        ADDITION(AllIcons.I_ADD),
+        SUBTRACTION(AllIcons.I_ROLLER_PAVE),
+        MULTIPLICATION(AllIcons.I_DISABLE),
+        DIVISION(AllIcons.I_FLIP),
         ;
 
         private final String translationKey;

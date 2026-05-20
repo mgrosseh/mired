@@ -48,11 +48,6 @@ public class AnalogSRLatchBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogS
                 : super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 
-    private int calculateOutputSignal(Level level, BlockPos pos, BlockState state) {
-        int i = this.getInputSignal(level, pos, state);
-        return 15 - i;
-    }
-
     @Override
     public Class<AnalogSRLatchBlockEntity> getBlockEntityClass() {
         return AnalogSRLatchBlockEntity.class;

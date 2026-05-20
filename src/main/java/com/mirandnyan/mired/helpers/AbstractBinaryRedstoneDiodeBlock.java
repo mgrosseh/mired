@@ -1,5 +1,6 @@
 package com.mirandnyan.mired.helpers;
 
+import com.mirandnyan.mired.Mired;
 import com.simibubi.create.content.redstone.diodes.AbstractDiodeBlock;
 import com.simibubi.create.foundation.block.IBE;
 import dev.simulated_team.simulated.multiloader.CommonRedstoneBlock;
@@ -25,10 +26,38 @@ public abstract class AbstractBinaryRedstoneDiodeBlock<T extends AbstractBinaryR
     protected void checkTickOnNeighbor(final Level level, final BlockPos pos, final BlockState state) {
         super.checkTickOnNeighbor(level, pos, state);
         level.setBlock(pos, this.getUpdatedBlockstate(pos, state, level), 2);
+        this.refreshInputSignals(state, level, pos);
     }
 
     @Override
-    public void tick(final BlockState state, final ServerLevel level, final BlockPos pos, final RandomSource random) {}
+    public void tick(final BlockState state, final ServerLevel level, final BlockPos pos, final RandomSource random) {
+        this.refreshInputSignals(state, level, pos);
+        Mired.LOGGER.debug("MIRED: Tick");
+    }
+
+
+    protected void refreshInputSignals(BlockState state, Level level, BlockPos pos) {
+        final Direction facing = state.getValue(AbstractBinaryRedstoneDiodeBlock.FACING).getOpposite();
+        final BlockPos backSide = pos.relative(facing.getOpposite());
+        final BlockPos leftSide = pos.offset(facing.getCounterClockWise().getNormal());
+        final BlockPos rightSide = pos.offset(facing.getClockWise().getNormal());
+
+        final int leftSignal = level.getSignal(leftSide, facing.getClockWise().getOpposite());
+        final int rightSignal = level.getSignal(rightSide, facing.getCounterClockWise().getOpposite());
+        final int backSignal = level.getSignal(backSide, facing.getOpposite());
+
+        if (backSignal + leftSignal + rightSignal == 0)
+            return;
+
+
+        final T be = (T) level.getBlockEntity(pos);
+        if (be == null)
+            return;
+
+        be.setBackInputSignal(backSignal);
+        be.setLeftInputSignal(leftSignal);
+        be.setRightInputSignal(rightSignal);
+    }
 
     public BlockState getUpdatedBlockstate(final BlockPos pos, final BlockState state, final Level level) {
         final Direction facing = state.getValue(AbstractBinaryRedstoneDiodeBlock.FACING).getOpposite();
