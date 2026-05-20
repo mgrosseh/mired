@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "mired:block/cog_block_semi_on",
-    "particle": "mired:block/cog_block_semi_on"
-  }
-}

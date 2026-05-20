@@ -1,4 +1,4 @@
-package com.mirandnyan.mired.content.blocks.cog_block;
+package com.mirandnyan.mired.content.blocks.brass_encased_redstone;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,11 +14,11 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 import javax.annotation.Nullable;
 
-public class CogBlock extends Block {
+public class BrassEncasedRedstoneBlock extends Block {
 
     public static final IntegerProperty POWER = BlockStateProperties.POWER;
 
-    public CogBlock(Properties properties) {
+    public BrassEncasedRedstoneBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(POWER, 0));
     }

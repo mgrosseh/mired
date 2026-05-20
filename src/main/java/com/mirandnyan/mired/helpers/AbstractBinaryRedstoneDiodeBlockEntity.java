@@ -94,7 +94,7 @@ public abstract class AbstractBinaryRedstoneDiodeBlockEntity extends SmartBlockE
         }
     }
 
-    private void updateFacingBlock(Block block, Level level) {
+    protected void updateFacingBlock(Block block, Level level) {
         level.updateNeighborsAt(this.worldPosition, block);
         level.updateNeighborsAt(this.worldPosition.relative(this.getBlockState().getValue(AbstractBinaryRedstoneDiodeBlock.FACING).getOpposite()), block);
     }

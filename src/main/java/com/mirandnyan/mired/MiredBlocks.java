@@ -4,13 +4,13 @@ import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlock;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockEntity;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockStateGen;
 import com.mirandnyan.mired.content.blocks.analog_sr_latch.*;
-import com.mirandnyan.mired.content.blocks.cog_block.CogBlock;
-import com.mirandnyan.mired.content.blocks.cog_block.CogBlockStateGen;
+import com.mirandnyan.mired.content.blocks.brass_encased_redstone.BrassEncasedRedstoneBlock;
+import com.mirandnyan.mired.content.blocks.brass_encased_redstone.BrassEncasedRedstoneBlockStateGen;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockEntity;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockStateGen;
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
@@ -19,18 +19,15 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
-import net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder;
 
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 
 public class MiredBlocks {
     private static final CreateRegistrate REGISTRATE = Mired.getRegistrate();
 
-    public static final BlockEntry<CogBlock> COG_BLOCK = REGISTRATE.block("cog_block", CogBlock::new)
+    public static final BlockEntry<BrassEncasedRedstoneBlock> BRASS_ENCASED_REDSTONE = REGISTRATE.block("brass_encased_redstone", BrassEncasedRedstoneBlock::new)
             .initialProperties(() -> Blocks.COPPER_BLOCK)
-            .blockstate(CogBlockStateGen.generate())
+            .blockstate(BrassEncasedRedstoneBlockStateGen.instance.generate())
             .properties(prop -> prop
                     .strength(3.0f, 6.0f)
                     .sound(SoundType.COPPER)

@@ -42,11 +42,11 @@ public class AnalogSRLatchRenderer extends SafeBlockEntityRenderer<AnalogSRLatch
                 .renderInto(ms, vb);
 
         // Indicator
-//        int color = Color.mixColors(0x2C0300, 0xCD0000, state / 15f);
-//        SuperByteBuffer indicator = transform(CachedBuffers.partial(AllPartialModels.ANALOG_LEVER_INDICATOR, leverState), leverState);
-//        indicator.light(light)
-//                .color(color)
-//                .renderInto(ms, vb);
+        int color = Color.mixColors(0x2C0300, 0xCD0000, state / 15f);
+        SuperByteBuffer indicator = transform(CachedBuffers.partial(AllPartialModels.ANALOG_LEVER_INDICATOR, leverState), leverState);
+        indicator.light(light)
+                .color(color)
+                .renderInto(ms, vb);
 
     }
 

@@ -3,6 +3,8 @@ package com.mirandnyan.mired;
 import net.minecraft.resources.ResourceLocation;
 
 public class MiredLang {
+    public static final LangEntry CREATIVE_MODE_TAB = new LangEntry("itemGroup", "", Mired.MOD_NAME);
+
     public static final LangEntry ADDITION_MODE = new LangEntry("analog_computator.computation_mode.addition", "Addition Mode");
     public static final LangEntry SUBTRACTION_MODE = new LangEntry("analog_computator.computation_mode.subtraction", "Addition Mode");
     public static final LangEntry MULTIPLICATION_MODE = new LangEntry("analog_computator.computation_mode.multiplication", "Addition Mode");

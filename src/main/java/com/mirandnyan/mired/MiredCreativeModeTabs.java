@@ -5,10 +5,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static com.mirandnyan.mired.Mired.MOD_ID;
@@ -22,9 +20,9 @@ public class MiredCreativeModeTabs {
                 () -> CreativeModeTab.builder()
                         .title(Component.translatable("itemGroup.mired"))
                         .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-                        .icon(() -> MiredBlocks.getItem(MiredBlocks.COG_BLOCK).asStack())
+                        .icon(() -> MiredBlocks.getItem(MiredBlocks.BRASS_ENCASED_REDSTONE).asStack())
                         .displayItems((parameters, output) -> {
-                            output.accept(MiredBlocks.getItem(MiredBlocks.COG_BLOCK));
+                            output.accept(MiredBlocks.getItem(MiredBlocks.BRASS_ENCASED_REDSTONE));
                             output.accept(MiredBlocks.getItem(MiredBlocks.ANALOG_INVERTER_BLOCK));
                             output.accept(MiredBlocks.getItem(MiredBlocks.ANALOG_SR_LATCH_BLOCK));
                             output.accept(MiredBlocks.getItem(MiredBlocks.COMPUTATOR));
