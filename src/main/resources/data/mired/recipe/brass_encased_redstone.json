@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "create:brass_casing"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mired:brass_encased_redstone"
+  }
+}

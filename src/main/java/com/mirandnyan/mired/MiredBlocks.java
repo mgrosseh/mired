@@ -15,7 +15,10 @@ import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -33,6 +36,13 @@ public class MiredBlocks {
                     .sound(SoundType.COPPER)
                     .requiresCorrectToolForDrops())
             .item()
+//            .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
+//                    .pattern("A")
+//                    .pattern("B")
+//                    .pattern("")
+//                    .define('A', AllBlocks.BRASS_CASING.asItem())
+//                    .define('B', Items.REDSTONE)
+//            )
             .transform(customItemModel())
             .register();
 

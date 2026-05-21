@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "T": {
+      "item": "minecraft:redstone_torch"
+    },
+    "C": {
+      "item": "minecraft:comparator"
+    },
+    "B": {
+      "item": "create:brass_sheet"
+    },
+    "S": {
+      "tag": "c:stones"
+    }
+  },
+  "pattern": [
+    " T ",
+    "CBC",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mired:analog_computator"
+  }
+}

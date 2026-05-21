@@ -25,8 +25,8 @@ public abstract class AbstractBinaryRedstoneDiodeBlock<T extends AbstractBinaryR
     @Override
     protected void checkTickOnNeighbor(final Level level, final BlockPos pos, final BlockState state) {
         super.checkTickOnNeighbor(level, pos, state);
-        level.setBlock(pos, this.getUpdatedBlockstate(pos, state, level), 2);
         this.refreshInputSignals(state, level, pos);
+        level.setBlock(pos, this.getUpdatedBlockstate(pos, state, level), 2);
     }
 
     @Override
@@ -44,10 +44,6 @@ public abstract class AbstractBinaryRedstoneDiodeBlock<T extends AbstractBinaryR
         final int leftSignal = level.getSignal(leftSide, facing.getClockWise().getOpposite());
         final int rightSignal = level.getSignal(rightSide, facing.getCounterClockWise().getOpposite());
         final int backSignal = level.getSignal(backSide, facing.getOpposite());
-
-        if (backSignal + leftSignal + rightSignal == 0)
-            return;
-
 
         final T be = (T) level.getBlockEntity(pos);
         if (be == null)

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "T": {
+      "item": "minecraft:redstone_torch"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "L": {
+      "item": "create:analog_lever"
+    },
+    "B": {
+      "item": "create:brass_sheet"
+    },
+    "S": {
+      "tag": "c:stones"
+    }
+  },
+  "pattern": [
+    " T ",
+    "RLR",
+    "SBS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mired:analog_sr_latch"
+  }
+}
