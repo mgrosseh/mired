@@ -1,25 +1,28 @@
 
-Installation information
+MIRED
 =======
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+WIP Readme.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+# Additions
+## Brass Encased Redstone
+Like redstone but as a block, i.e. vertical.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+## Analog Computator
+Select computation mode (add, subtract, multiply, divide) and `output = side-input <> back-input` where `<>` is the 
+chosen computation mode.
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+## Analog SR Latch
+Vaguely similar to create's Redstone Latch; when powered from either side it will store the analog signal provided from
+behind, it comes in two modes:
+- (default) continuous: as long as a signal is provided to either side, the stored value updates with its input
+- on rising edge: only updates the input provided from the back once -- to store a new value, discontinue power to the 
+  side and power it again.
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+## Analog Inverter (Model WIP)
+Inverts the analog signal provied from behind, that is: `output = 15 - input`.
+
+# about
+Made by Mirandnyan.
+
+No AI used to make this mod.
