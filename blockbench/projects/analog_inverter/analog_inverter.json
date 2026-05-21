@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"4": "create:block/diodes/brass_diode_base",
-		"5": "mired:block/analog_inverter/analog_inverter_top_powered",
-		"6": "block/redstone_torch_off",
+		"5": "mired:block/analog_inverter/analog_inverter_top",
+		"6": "block/redstone_torch",
 		"particle": "block/redstone_torch"
 	},
 	"elements": [

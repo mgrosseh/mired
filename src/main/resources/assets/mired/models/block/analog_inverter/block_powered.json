@@ -1,11 +1,12 @@
 {
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
+	"render_type": "cutout",
 	"textures": {
 		"4": "create:block/diodes/brass_diode_base",
-		"5": "mired:block/analog_inverter/analog_inverter_top_powered",
-		"6": "block/redstone_torch_off",
-		"particle": "block/redstone_torch"
+		"5": "mired:block/analog_inverter/analog_inverter_top",
+		"6": "block/redstone_torch",
+		"particle": "create:block/diodes/brass_diode_base"
 	},
 	"elements": [
 		{

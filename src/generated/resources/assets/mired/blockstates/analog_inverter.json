@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "mired:block/analog_inverter/block_on"
+        "model": "mired:block/analog_inverter/block_powered"
       },
       "when": {
         "facing": "north",
@@ -11,7 +11,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_inverter/block_off"
+        "model": "mired:block/analog_inverter/block"
       },
       "when": {
         "facing": "north",
@@ -20,7 +20,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_inverter/block_on",
+        "model": "mired:block/analog_inverter/block_powered",
         "y": 180
       },
       "when": {
@@ -30,7 +30,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_inverter/block_off",
+        "model": "mired:block/analog_inverter/block",
         "y": 180
       },
       "when": {
@@ -40,7 +40,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_inverter/block_on",
+        "model": "mired:block/analog_inverter/block_powered",
         "y": 270
       },
       "when": {
@@ -50,7 +50,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_inverter/block_off",
+        "model": "mired:block/analog_inverter/block",
         "y": 270
       },
       "when": {
@@ -60,7 +60,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_inverter/block_on",
+        "model": "mired:block/analog_inverter/block_powered",
         "y": 90
       },
       "when": {
@@ -70,7 +70,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/analog_inverter/block_off",
+        "model": "mired:block/analog_inverter/block",
         "y": 90
       },
       "when": {
