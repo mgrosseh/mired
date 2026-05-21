@@ -35,7 +35,7 @@ public class Mired {
         MiredBlocks.register();
         MiredCreativeModeTabs.register(modEventBus);
 
-        MiredLang.register();
+        MiredTranslations.register();
     }
 
     public static CreateRegistrate getRegistrate() {

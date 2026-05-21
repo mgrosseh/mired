@@ -1,8 +1,11 @@
 package com.mirandnyan.mired.content.blocks.analog_sr_latch;
 
+import com.mirandnyan.mired.Mired;
 import com.mirandnyan.mired.MiredBlocks;
 import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlock;
 import com.mojang.serialization.MapCodec;
+import com.simibubi.create.AllItems;
+import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.redstone.diodes.AbstractDiodeBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -11,8 +14,12 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -27,10 +34,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.ticks.TickPriority;
 import org.joml.Vector3f;
 
-public class AnalogSRLatchBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogSRLatchBlockEntity> {
+public class AnalogSRLatchBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogSRLatchBlockEntity> implements IWrenchable {
     public static final MapCodec<AnalogSRLatchBlock> CODEC = simpleCodec(AnalogSRLatchBlock::new);
-
-    // TODO: make togglable only update on rising edge
 
     public AnalogSRLatchBlock(final Properties builder) {
         super(builder);
@@ -86,6 +91,33 @@ public class AnalogSRLatchBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogS
             worldIn.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.2F, f);
             return InteractionResult.SUCCESS;
         });
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(final ItemStack heldItem, final BlockState blockState, final Level level, final BlockPos blockPos, final Player player, final InteractionHand interactionHand, final BlockHitResult blockHitResult) {
+        if (heldItem.isEmpty())
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+
+        if (AllItems.WRENCH.isIn(heldItem)) {
+            if (onWrenched(blockState, new UseOnContext(level, player, interactionHand, heldItem, blockHitResult)) == InteractionResult.SUCCESS) {
+                return ItemInteractionResult.SUCCESS;
+            }
+            else return ItemInteractionResult.FAIL;
+        }
+
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    public InteractionResult onWrenched(BlockState state, UseOnContext context) {
+        Level level = context.getLevel();
+        BlockPos pos = context.getClickedPos();
+        final AnalogSRLatchBlockEntity be = (AnalogSRLatchBlockEntity) level.getBlockEntity(pos);
+        if (be != null) {
+            be.toggleRisingEdgeOnlyMode();
+            return InteractionResult.SUCCESS;
+        }
+        Mired.LOGGER.debug("MIRED: Failed");
+        return InteractionResult.FAIL;
     }
 
 

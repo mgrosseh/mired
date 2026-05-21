@@ -1,37 +1,48 @@
 package com.mirandnyan.mired;
 
-import net.minecraft.resources.ResourceLocation;
+import net.createmod.catnip.lang.Lang;
+import net.createmod.catnip.lang.LangBuilder;
+import net.createmod.catnip.lang.LangNumberFormat;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.fluids.FluidStack;
 
-public class MiredLang {
-    public static final LangEntry CREATIVE_MODE_TAB = new LangEntry("itemGroup", "", Mired.MOD_NAME);
+public class MiredLang extends Lang {
 
-    public static final LangEntry ADDITION_MODE = new LangEntry("analog_computator.computation_mode.addition", "Addition Mode");
-    public static final LangEntry SUBTRACTION_MODE = new LangEntry("analog_computator.computation_mode.subtraction", "Addition Mode");
-    public static final LangEntry MULTIPLICATION_MODE = new LangEntry("analog_computator.computation_mode.multiplication", "Addition Mode");
-    public static final LangEntry DIVISION_MODE = new LangEntry("analog_computator.computation_mode.division", "Addition Mode");
-    public static final LangEntry COMPUTATION_MODE = new LangEntry("analog_computator.computation_mode", "Computation Mode");
-
-
-
-    public static class LangEntry {
-        public String textEnglish;
-        public String type;
-        public String translationKey;
-        public LangEntry(String translationKey, String textEnglish) {
-            this("", translationKey, textEnglish);
-        }
-        public LangEntry(String prefix, String translationKey, String textEnglish) {
-            this.textEnglish = textEnglish;
-            this.translationKey = translationKey;
-            var loc = ResourceLocation.tryBySeparator(translationKey, '.');
-
-            String type = (prefix.isEmpty() ? "" : prefix + ".") + Mired.MOD_ID;
-            if (loc != null)
-                Mired.getRegistrate().addLang(type, loc, textEnglish);
-        }
+    public static LangBuilder builder() {
+        return new LangBuilder(Mired.MOD_ID);
     }
 
-    public static void register() {
-        // load class for datagen
+    public static LangBuilder blockName(BlockState state) {
+        return builder().add(state.getBlock()
+                .getName());
     }
+
+    public static LangBuilder itemName(ItemStack stack) {
+        return builder().add(stack.getHoverName()
+                .copy());
+    }
+
+    public static LangBuilder fluidName(FluidStack stack) {
+        return builder().add(stack.getHoverName()
+                .copy());
+    }
+
+    public static LangBuilder number(double d) {
+        return builder().text(LangNumberFormat.format(d));
+    }
+
+    public static LangBuilder translate(String langKey, Object... args) {
+        return builder().translate(langKey, args);
+    }
+
+    public static LangBuilder text(String text) {
+        return builder().text(text);
+    }
+
+    @Deprecated // Use while implementing and replace all references with Lang.translate
+    public static LangBuilder temporaryText(String text) {
+        return builder().text(text);
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.mirandnyan.mired.content.blocks.computator;
 
-import com.mirandnyan.mired.MiredLang;
+import com.mirandnyan.mired.MiredTranslations;
 import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -49,7 +49,7 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
     @Override
     public void addBehaviours(final List<BlockEntityBehaviour> behaviours) {
         this.computationMode = new ScrollOptionBehaviour<>(ComputationMode.class,
-                Component.translatable(MiredLang.COMPUTATION_MODE.translationKey),
+                Component.translatable(MiredTranslations.COMPUTATION_MODE.translationKey),
                 this,
                 new AnalogComputatorValueBoxTransform());
 
@@ -67,10 +67,10 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
 //        SUBTRACTION(MiredIcons.I_SUBTRACT),
 //        MULTIPLICATION(MiredIcons.I_MULTIPLY),
 //        DIVISION(MiredIcons.I_DIVIDE),
-        ADDITION(AllIcons.I_ADD, MiredLang.ADDITION_MODE.translationKey),
-        SUBTRACTION(AllIcons.I_ROLLER_PAVE, MiredLang.SUBTRACTION_MODE.translationKey),
-        MULTIPLICATION(AllIcons.I_DISABLE, MiredLang.MULTIPLICATION_MODE.translationKey),
-        DIVISION(AllIcons.I_FLIP, MiredLang.DIVISION_MODE.translationKey),
+        ADDITION(AllIcons.I_ADD, MiredTranslations.ADDITION_MODE.translationKey),
+        SUBTRACTION(AllIcons.I_ROLLER_PAVE, MiredTranslations.SUBTRACTION_MODE.translationKey),
+        MULTIPLICATION(AllIcons.I_DISABLE, MiredTranslations.MULTIPLICATION_MODE.translationKey),
+        DIVISION(AllIcons.I_FLIP, MiredTranslations.DIVISION_MODE.translationKey),
         ;
 
         private final String translationKey;

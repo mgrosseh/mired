@@ -1,6 +1,8 @@
 package com.mirandnyan.mired.content.blocks.analog_sr_latch;
 
 import com.mirandnyan.mired.Mired;
+import com.mirandnyan.mired.MiredLang;
+import com.mirandnyan.mired.MiredTranslations;
 import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlock;
 import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlockEntity;
 import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
@@ -23,9 +25,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class AnalogSRLatchBlockEntity extends AbstractBinaryRedstoneDiodeBlockEntity implements IHaveGoggleInformation {
-
     int lastChange;
     LerpedFloat clientState;
+
+    boolean risingEdgeOnlyMode;
+    boolean lastSidePowered;
 
     public AnalogSRLatchBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
@@ -38,12 +42,16 @@ public class AnalogSRLatchBlockEntity extends AbstractBinaryRedstoneDiodeBlockEn
     @Override
     public void write(CompoundTag compound, HolderLookup.Provider registries, boolean clientPacket) {
         compound.putInt("ChangeTimer", lastChange);
+        compound.putBoolean("RisingEdgeOnlyMode", risingEdgeOnlyMode);
+        compound.putBoolean("LastSidePowered", lastSidePowered);
         super.write(compound, registries, clientPacket);
     }
 
     @Override
     protected void read(CompoundTag compound, HolderLookup.Provider registries, boolean clientPacket) {
         lastChange = compound.getInt("ChangeTimer");
+        risingEdgeOnlyMode = compound.getBoolean("RisingEdgeOnlyMode");
+        lastSidePowered = compound.getBoolean("LastSidePowered");
         super.read(compound, registries, clientPacket);
         clientState.chase(outputSignal, 0.2f, LerpedFloat.Chaser.EXP);
     }
@@ -63,8 +71,17 @@ public class AnalogSRLatchBlockEntity extends AbstractBinaryRedstoneDiodeBlockEn
 
     @Override
     protected Optional<Integer> calculateOutputSignal(boolean backSignal, boolean sideSignal) {
-        if (sideSignal) {
+        if (!risingEdgeOnlyMode && sideSignal) {
             return Optional.of(backSignal ? this.backInputSignal : 0);
+        }
+        if (risingEdgeOnlyMode) {
+            if (sideSignal && !lastSidePowered) {
+                Mired.LOGGER.debug("MIRED: Updating Signal");
+                lastSidePowered = true;
+                return Optional.of(backSignal ? this.backInputSignal : 0);
+            }
+            if (!sideSignal)
+                lastSidePowered = false;
         }
         return Optional.empty();
     }
@@ -79,9 +96,19 @@ public class AnalogSRLatchBlockEntity extends AbstractBinaryRedstoneDiodeBlockEn
         sendData();
     }
 
+    public void toggleRisingEdgeOnlyMode() {
+        risingEdgeOnlyMode = !risingEdgeOnlyMode;
+        lastSidePowered = false;
+        sendData();
+        Mired.LOGGER.debug("MIRED: Rising Edge only mode: {}", risingEdgeOnlyMode);
+    }
+
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
         CreateLang.translate("tooltip.analogStrength", this.outputSignal).forGoggles(tooltip);
+        MiredLang.translate(risingEdgeOnlyMode ?
+                MiredTranslations.TOOLTIP_RISING_EDGE_ONLY_ON.translationKey :
+                MiredTranslations.TOOLTIP_RISING_EDGE_ONLY_OFF.translationKey).forGoggles(tooltip);
 
         return true;
     }
