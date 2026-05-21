@@ -1,7 +1,7 @@
 package com.mirandnyan.mired.content.blocks.computator;
 
 import com.mirandnyan.mired.MiredBlocks;
-import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlock;
+import com.mirandnyan.mired.content.blocks.helpers.AbstractBinaryRedstoneDiodeBlock;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.DiodeBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;

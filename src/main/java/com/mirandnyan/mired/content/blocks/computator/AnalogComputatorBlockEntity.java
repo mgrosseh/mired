@@ -1,7 +1,7 @@
 package com.mirandnyan.mired.content.blocks.computator;
 
 import com.mirandnyan.mired.MiredTranslations;
-import com.mirandnyan.mired.helpers.AbstractBinaryRedstoneDiodeBlockEntity;
+import com.mirandnyan.mired.content.blocks.helpers.AbstractBinaryRedstoneDiodeBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.ValueBoxTransform;

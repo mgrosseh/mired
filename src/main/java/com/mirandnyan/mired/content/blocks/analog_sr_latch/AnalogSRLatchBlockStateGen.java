@@ -1,7 +1,7 @@
 package com.mirandnyan.mired.content.blocks.analog_sr_latch;
 
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;
-import com.mirandnyan.mired.helpers.DiodeBlockStateGenerator;
+import com.mirandnyan.mired.content.blocks.helpers.DiodeBlockStateGenerator;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import net.minecraft.core.Direction;
 import net.neoforged.neoforge.client.model.generators.ModelFile;

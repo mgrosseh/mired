@@ -1,5 +1,8 @@
 package com.mirandnyan.mired;
 
+import com.mirandnyan.mired.content.blocks.analog_gate.AnalogGateBlock;
+import com.mirandnyan.mired.content.blocks.analog_gate.AnalogGateBlockEntity;
+import com.mirandnyan.mired.content.blocks.analog_gate.AnalogGateBlockStateGen;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlock;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockEntity;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockStateGen;
@@ -77,6 +80,16 @@ public class MiredBlocks {
             .validBlock(ANALOG_SR_LATCH_BLOCK)
             .renderer(() -> AnalogSRLatchRenderer::new)
             .register();
+
+    public static final BlockEntry<AnalogGateBlock> ANALOG_GATE_BLOACK = REGISTRATE.block("analog_gate", AnalogGateBlock::new)
+            .initialProperties(() -> Blocks.COMPARATOR)
+            .blockstate(AnalogGateBlockStateGen.instance.generate())
+            .blockEntity(AnalogGateBlockEntity::new)
+            .build()
+            .item()
+            .transform(customItemModel())
+            .register();
+
 
 
 

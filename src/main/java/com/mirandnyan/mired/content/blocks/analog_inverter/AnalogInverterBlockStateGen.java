@@ -1,7 +1,7 @@
 package com.mirandnyan.mired.content.blocks.analog_inverter;
 
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;
-import com.mirandnyan.mired.helpers.BlockStateGenerator;
+import com.mirandnyan.mired.content.blocks.helpers.BlockStateGenerator;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import net.minecraft.core.Direction;

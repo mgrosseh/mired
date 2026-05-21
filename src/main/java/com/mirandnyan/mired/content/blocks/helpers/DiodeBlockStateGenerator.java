@@ -1,7 +1,5 @@
-package com.mirandnyan.mired.helpers;
+package com.mirandnyan.mired.content.blocks.helpers;
 
-import com.mirandnyan.mired.content.blocks.analog_sr_latch.AnalogSRLatchBlock;
-import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import net.minecraft.core.Direction;

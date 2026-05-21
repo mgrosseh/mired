@@ -1,10 +1,8 @@
 package com.mirandnyan.mired.content.blocks.brass_encased_redstone;
 
-import com.mirandnyan.mired.Mired;
-import com.mirandnyan.mired.helpers.BlockStateGenerator;
+import com.mirandnyan.mired.content.blocks.helpers.BlockStateGenerator;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
-import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.generators.ModelFile;

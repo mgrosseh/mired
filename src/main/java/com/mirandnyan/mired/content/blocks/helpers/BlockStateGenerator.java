@@ -1,4 +1,4 @@
-package com.mirandnyan.mired.helpers;
+package com.mirandnyan.mired.content.blocks.helpers;
 
 import com.mirandnyan.mired.Mired;
 import com.tterrag.registrate.providers.DataGenContext;
