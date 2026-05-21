@@ -4,6 +4,11 @@ MIRED
 
 WIP Readme.
 
+# Dependencies
+- NeoForge for Minecraft 1.21.1
+- Create (6.0.10)
+- Create Aeronautics (1.2.2) (maybe not needed, but needed for the future)
+
 # Additions
 ## Brass Encased Redstone
 Like redstone but as a block, i.e. vertical.
