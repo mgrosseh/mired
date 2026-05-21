@@ -3,10 +3,12 @@
   "block.mired.analog_inverter": "ɹǝʇɹǝʌuI boןɐuⱯ",
   "block.mired.analog_sr_latch": "ɥɔʇɐꞀ ɹS boןɐuⱯ",
   "block.mired.brass_encased_redstone": "ǝuoʇspǝᴚ pǝsɐɔuƎ ssɐɹᗺ",
-  "itemGroup.mired.minecraft.": "pǝɹıW",
+  "itemGroup.mired": "pǝɹıW",
   "mired.analog_computator.computation_mode": "ǝpoW uoıʇɐʇndɯoƆ",
   "mired.analog_computator.computation_mode.addition": "ǝpoW uoıʇıppⱯ",
   "mired.analog_computator.computation_mode.division": "ǝpoW uoıʇıppⱯ",
   "mired.analog_computator.computation_mode.multiplication": "ǝpoW uoıʇıppⱯ",
-  "mired.analog_computator.computation_mode.subtraction": "ǝpoW uoıʇıppⱯ"
+  "mired.analog_computator.computation_mode.subtraction": "ǝpoW uoıʇıppⱯ",
+  "mired.tooltip.analog_sr_latch.risingEdgeOnlyOff": "ʎןsnonuıʇuoɔ sǝʇɐpd∩",
+  "mired.tooltip.analog_sr_latch.risingEdgeOnlyOn": "ʎןuo ǝbpƎ buısıᴚ uo sǝʇɐpd∩"
 }

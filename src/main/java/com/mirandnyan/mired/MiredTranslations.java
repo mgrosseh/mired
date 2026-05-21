@@ -4,12 +4,12 @@ import net.minecraft.resources.ResourceLocation;
 
 /** AKA Lang */
 public class MiredTranslations {
-    public static final LangEntry CREATIVE_MODE_TAB = new LangEntry("itemGroup", "", Mired.MOD_NAME);
+    public static final LangEntry CREATIVE_MODE_TAB = new LangEntry("itemGroup", Mired.MOD_ID, Mired.MOD_NAME);
 
     public static final LangEntry ADDITION_MODE = new LangEntry("analog_computator.computation_mode.addition", "Addition Mode");
-    public static final LangEntry SUBTRACTION_MODE = new LangEntry("analog_computator.computation_mode.subtraction", "Addition Mode");
-    public static final LangEntry MULTIPLICATION_MODE = new LangEntry("analog_computator.computation_mode.multiplication", "Addition Mode");
-    public static final LangEntry DIVISION_MODE = new LangEntry("analog_computator.computation_mode.division", "Addition Mode");
+    public static final LangEntry SUBTRACTION_MODE = new LangEntry("analog_computator.computation_mode.subtraction", "Subtraction Mode");
+    public static final LangEntry MULTIPLICATION_MODE = new LangEntry("analog_computator.computation_mode.multiplication", "Multiplication Mode");
+    public static final LangEntry DIVISION_MODE = new LangEntry("analog_computator.computation_mode.division", "Division Mode");
     public static final LangEntry COMPUTATION_MODE = new LangEntry("analog_computator.computation_mode", "Computation Mode");
 
 
@@ -19,19 +19,14 @@ public class MiredTranslations {
 
     public static class LangEntry {
         public String textEnglish;
-        public String type;
         public String translationKey;
         public LangEntry(String translationKey, String textEnglish) {
-            this("", translationKey, textEnglish);
+            this(Mired.MOD_ID, translationKey, textEnglish);
         }
         public LangEntry(String prefix, String translationKey, String textEnglish) {
             this.textEnglish = textEnglish;
-            this.translationKey = translationKey;
-            var loc = ResourceLocation.tryBySeparator(translationKey, '.');
-
-            String type = (prefix.isEmpty() ? "" : prefix + ".") + Mired.MOD_ID;
-            if (loc != null)
-                Mired.getRegistrate().addLang(type, loc, textEnglish);
+            this.translationKey = prefix.isEmpty() ? "" : (prefix + ".") + translationKey;
+            Mired.getRegistrate().addRawLang(this.translationKey, textEnglish);
         }
     }
 

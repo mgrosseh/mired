@@ -3,10 +3,12 @@
   "block.mired.analog_inverter": "Analog Inverter",
   "block.mired.analog_sr_latch": "Analog Sr Latch",
   "block.mired.brass_encased_redstone": "Brass Encased Redstone",
-  "itemGroup.mired.minecraft.": "Mired",
+  "itemGroup.mired": "Mired",
   "mired.analog_computator.computation_mode": "Computation Mode",
   "mired.analog_computator.computation_mode.addition": "Addition Mode",
   "mired.analog_computator.computation_mode.division": "Addition Mode",
   "mired.analog_computator.computation_mode.multiplication": "Addition Mode",
-  "mired.analog_computator.computation_mode.subtraction": "Addition Mode"
+  "mired.analog_computator.computation_mode.subtraction": "Addition Mode",
+  "mired.tooltip.analog_sr_latch.risingEdgeOnlyOff": "Updates continuously",
+  "mired.tooltip.analog_sr_latch.risingEdgeOnlyOn": "Updates on Rising Edge only"
 }
