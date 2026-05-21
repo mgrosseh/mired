@@ -95,14 +95,8 @@ public class AnalogSRLatchBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogS
 
     @Override
     protected ItemInteractionResult useItemOn(final ItemStack heldItem, final BlockState blockState, final Level level, final BlockPos blockPos, final Player player, final InteractionHand interactionHand, final BlockHitResult blockHitResult) {
-        if (heldItem.isEmpty())
-            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-
         if (AllItems.WRENCH.isIn(heldItem)) {
-            if (onWrenched(blockState, new UseOnContext(level, player, interactionHand, heldItem, blockHitResult)) == InteractionResult.SUCCESS) {
-                return ItemInteractionResult.SUCCESS;
-            }
-            else return ItemInteractionResult.FAIL;
+            return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
         }
 
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
@@ -116,7 +110,6 @@ public class AnalogSRLatchBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogS
             be.toggleRisingEdgeOnlyMode();
             return InteractionResult.SUCCESS;
         }
-        Mired.LOGGER.debug("MIRED: Failed");
         return InteractionResult.FAIL;
     }
 

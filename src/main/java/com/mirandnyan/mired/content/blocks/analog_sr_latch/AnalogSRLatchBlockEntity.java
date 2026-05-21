@@ -75,6 +75,18 @@ public class AnalogSRLatchBlockEntity extends AbstractBinaryRedstoneDiodeBlockEn
         return Optional.empty();
     }
 
+    @Override
+    public void setOutputSignal(final int output) {
+        boolean update = output != this.outputSignal;
+        this.outputSignal = Mth.clamp(output, 0, 15);
+        if (!update) return;
+
+        if (risingEdgeOnlyMode) this.updateFacingBlock(this.getBlockState().getBlock(), this.level);
+        else lastChange = 1; // TODO maybe implement this differently in the future
+
+        this.sendData();
+    }
+
     public void changeOutputSignal(boolean back) {
         // TODO: documentation: called for interaction results to mimic behaviour of analog lever, use setOutputSignal in most cases
         int prev = this.outputSignal;

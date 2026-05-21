@@ -32,7 +32,6 @@ public abstract class AbstractBinaryRedstoneDiodeBlock<T extends AbstractBinaryR
     @Override
     public void tick(final BlockState state, final ServerLevel level, final BlockPos pos, final RandomSource random) {
         this.refreshInputSignals(state, level, pos);
-        Mired.LOGGER.debug("MIRED: Tick");
     }
 
 
