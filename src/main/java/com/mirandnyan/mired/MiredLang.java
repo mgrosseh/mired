@@ -3,9 +3,12 @@ package com.mirandnyan.mired;
 import net.createmod.catnip.lang.Lang;
 import net.createmod.catnip.lang.LangBuilder;
 import net.createmod.catnip.lang.LangNumberFormat;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.fluids.FluidStack;
+
+import static net.createmod.catnip.lang.LangBuilder.resolveBuilders;
 
 public class MiredLang extends Lang {
 
@@ -34,6 +37,11 @@ public class MiredLang extends Lang {
 
     public static LangBuilder translate(String langKey, Object... args) {
         return builder().translate(langKey, args);
+    }
+
+    public static LangBuilder translate(MiredTranslations.LangEntry entry, Object... args) {
+        Object[] args1 = resolveBuilders(args);
+        return builder().add(Component.translatable(entry.translationKey, args1));
     }
 
     public static LangBuilder text(String text) {

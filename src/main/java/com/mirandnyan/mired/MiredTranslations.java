@@ -25,7 +25,7 @@ public class MiredTranslations {
         }
         public LangEntry(String prefix, String translationKey, String textEnglish) {
             this.textEnglish = textEnglish;
-            this.translationKey = prefix.isEmpty() ? "" : (prefix + ".") + translationKey;
+            this.translationKey = (prefix.isEmpty() ? "" : prefix + ".") + translationKey;
             Mired.getRegistrate().addRawLang(this.translationKey, textEnglish);
         }
     }

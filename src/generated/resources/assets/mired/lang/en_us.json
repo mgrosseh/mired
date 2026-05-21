@@ -6,9 +6,9 @@
   "itemGroup.mired": "Mired",
   "mired.analog_computator.computation_mode": "Computation Mode",
   "mired.analog_computator.computation_mode.addition": "Addition Mode",
-  "mired.analog_computator.computation_mode.division": "Addition Mode",
-  "mired.analog_computator.computation_mode.multiplication": "Addition Mode",
-  "mired.analog_computator.computation_mode.subtraction": "Addition Mode",
+  "mired.analog_computator.computation_mode.division": "Division Mode",
+  "mired.analog_computator.computation_mode.multiplication": "Multiplication Mode",
+  "mired.analog_computator.computation_mode.subtraction": "Subtraction Mode",
   "mired.tooltip.analog_sr_latch.risingEdgeOnlyOff": "Updates continuously",
   "mired.tooltip.analog_sr_latch.risingEdgeOnlyOn": "Updates on Rising Edge only"
 }

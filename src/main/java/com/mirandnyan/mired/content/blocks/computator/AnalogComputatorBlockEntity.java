@@ -29,9 +29,7 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
     }
 
     @Override
-    protected Optional<Integer> calculateOutputSignal(boolean backSignal, boolean sideSignal) {
-        if (!backSignal && !sideSignal)
-            return Optional.empty();
+    protected Optional<Integer> calculateOutputSignal() {
         return switch (computationMode.get()) {
             case ADDITION -> Optional.of(this.getBackInputSignal() + this.getSideInputSignal());
             case SUBTRACTION -> Optional.of(this.getBackInputSignal() - this.getSideInputSignal());
@@ -67,18 +65,18 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
 //        SUBTRACTION(MiredIcons.I_SUBTRACT),
 //        MULTIPLICATION(MiredIcons.I_MULTIPLY),
 //        DIVISION(MiredIcons.I_DIVIDE),
-        ADDITION(AllIcons.I_ADD, MiredTranslations.ADDITION_MODE.translationKey),
-        SUBTRACTION(AllIcons.I_ROLLER_PAVE, MiredTranslations.SUBTRACTION_MODE.translationKey),
-        MULTIPLICATION(AllIcons.I_DISABLE, MiredTranslations.MULTIPLICATION_MODE.translationKey),
-        DIVISION(AllIcons.I_FLIP, MiredTranslations.DIVISION_MODE.translationKey),
+        ADDITION(AllIcons.I_ADD, MiredTranslations.ADDITION_MODE),
+        SUBTRACTION(AllIcons.I_ROLLER_PAVE, MiredTranslations.SUBTRACTION_MODE),
+        MULTIPLICATION(AllIcons.I_DISABLE, MiredTranslations.MULTIPLICATION_MODE),
+        DIVISION(AllIcons.I_FLIP, MiredTranslations.DIVISION_MODE),
         ;
 
         private final String translationKey;
         private final AllIcons icon;
 
-        ComputationMode(AllIcons icon, String translationKey) {
+        ComputationMode(AllIcons icon, MiredTranslations.LangEntry entry) {
             this.icon = icon;
-            this.translationKey = translationKey;
+            this.translationKey = entry.translationKey;
         }
 
         @Override

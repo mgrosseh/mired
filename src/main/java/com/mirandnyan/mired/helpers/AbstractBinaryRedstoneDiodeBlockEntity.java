@@ -21,6 +21,10 @@ public abstract class AbstractBinaryRedstoneDiodeBlockEntity extends SmartBlockE
     protected int leftInputSignal;
     protected int rightInputSignal;
 
+    protected int previousBackSignal;
+    protected int previousLeftSignal;
+    protected int previousRightSignal;
+
     public AbstractBinaryRedstoneDiodeBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
@@ -32,14 +36,12 @@ public abstract class AbstractBinaryRedstoneDiodeBlockEntity extends SmartBlockE
     public int getBackInputSignal() {
         return this.backInputSignal;
     }
-    public int getLeftInputSignal() {
-        return this.leftInputSignal;
-    }
-    public int getRightInputSignal() {
-        return this.rightInputSignal;
-    }
     public int getSideInputSignal() {
         return Math.max(this.rightInputSignal, this.leftInputSignal);
+    }
+
+    public int getPreviousSideInputSignal() {
+        return Math.max(this.previousRightSignal, this.previousLeftSignal);
     }
 
     public void setBackInputSignal(int signal) {
@@ -58,6 +60,9 @@ public abstract class AbstractBinaryRedstoneDiodeBlockEntity extends SmartBlockE
         tag.putInt("BackInputSignal", this.backInputSignal);
         tag.putInt("LeftInputSignal", this.leftInputSignal);
         tag.putInt("RightInputSignal", this.rightInputSignal);
+        tag.putInt("PrevBackInputSignal", this.previousBackSignal);
+        tag.putInt("PrevLeftInputSignal", this.previousLeftSignal);
+        tag.putInt("PrevRightInputSignal", this.previousRightSignal);
         super.write(tag, registries, clientPacket);
     }
     @Override
@@ -66,6 +71,9 @@ public abstract class AbstractBinaryRedstoneDiodeBlockEntity extends SmartBlockE
         this.backInputSignal = tag.getInt("BackInputSignal");
         this.leftInputSignal = tag.getInt("LeftInputSignal");
         this.rightInputSignal = tag.getInt("RightInputSignal");
+        this.previousBackSignal = tag.getInt("PrevBackInputSignal");
+        this.previousLeftSignal = tag.getInt("PrevLeftInputSignal");
+        this.previousRightSignal = tag.getInt("PrevRightInputSignal");
         super.read(tag, registries, clientPacket);
     }
 
@@ -75,14 +83,11 @@ public abstract class AbstractBinaryRedstoneDiodeBlockEntity extends SmartBlockE
         super.tick();
         if (this.level == null) return;
 
-        final boolean backSignal = this.getBlockState().getValue(AbstractBinaryRedstoneDiodeBlock.POWERED);
-        final boolean sideSignal = this.getBlockState().getValue(AbstractBinaryRedstoneDiodeBlock.SIDE_POWERED);
+        calculateOutputSignal().ifPresent(this::setOutputSignal);
 
-        if(!backSignal && !sideSignal) return;
-
-        int x;
-        if ((x = calculateOutputSignal(backSignal, sideSignal).orElse(-1)) != -1)
-            setOutputSignal(x);
+        previousBackSignal = backInputSignal;
+        previousLeftSignal = leftInputSignal;
+        previousRightSignal = rightInputSignal;
     }
 
     public void setOutputSignal(final int output) {
@@ -99,5 +104,5 @@ public abstract class AbstractBinaryRedstoneDiodeBlockEntity extends SmartBlockE
         level.updateNeighborsAt(this.worldPosition.relative(this.getBlockState().getValue(AbstractBinaryRedstoneDiodeBlock.FACING).getOpposite()), block);
     }
 
-    protected abstract Optional<Integer> calculateOutputSignal(boolean backSignal, boolean sideSignal);
+    protected abstract Optional<Integer> calculateOutputSignal();
 }
