@@ -10,6 +10,10 @@
   "mired.analog_computator.computation_mode.division": "ǝpoW uoısıʌıᗡ",
   "mired.analog_computator.computation_mode.multiplication": "ǝpoW uoıʇɐɔıןdıʇןnW",
   "mired.analog_computator.computation_mode.subtraction": "ǝpoW uoıʇɔɐɹʇqnS",
+  "mired.analog_gate.gate_value": "ǝnןɐΛ ǝʇɐ⅁",
+  "mired.scroll_value_behaviour.analog_scoll_value": "ǝnןɐΛ boןɐuⱯ",
+  "mired.tooltip.analog_gate.mode.greater_equal": "ןɐnbƎ ɹo uɐɥʇ ɹǝʇɐǝɹ⅁",
+  "mired.tooltip.analog_gate.mode.less_equal": "ןɐnbƎ ɹo uɐɥʇ ssǝꞀ",
   "mired.tooltip.analog_sr_latch.risingEdgeOnlyOff": "ʎןsnonuıʇuoɔ sǝʇɐpd∩",
   "mired.tooltip.analog_sr_latch.risingEdgeOnlyOn": "ʎןuo ǝbpƎ buısıᴚ uo sǝʇɐpd∩"
 }

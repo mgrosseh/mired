@@ -10,6 +10,10 @@
   "mired.analog_computator.computation_mode.division": "Division Mode",
   "mired.analog_computator.computation_mode.multiplication": "Multiplication Mode",
   "mired.analog_computator.computation_mode.subtraction": "Subtraction Mode",
+  "mired.analog_gate.gate_value": "Gate Value",
+  "mired.scroll_value_behaviour.analog_scoll_value": "Analog Value",
+  "mired.tooltip.analog_gate.mode.greater_equal": "Greater than or Equal",
+  "mired.tooltip.analog_gate.mode.less_equal": "Less than or Equal",
   "mired.tooltip.analog_sr_latch.risingEdgeOnlyOff": "Updates continuously",
   "mired.tooltip.analog_sr_latch.risingEdgeOnlyOn": "Updates on Rising Edge only"
 }
