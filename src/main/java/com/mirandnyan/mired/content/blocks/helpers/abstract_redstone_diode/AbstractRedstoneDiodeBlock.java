@@ -2,18 +2,18 @@ package com.mirandnyan.mired.content.blocks.helpers.abstract_redstone_diode;
 
 import com.simibubi.create.content.redstone.diodes.AbstractDiodeBlock;
 import com.simibubi.create.foundation.block.IBE;
-import dev.simulated_team.simulated.multiloader.CommonRedstoneBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.SignalGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class AbstractRedstoneDiodeBlock<T extends AbstractRedstoneDiodeBlockEntity> extends AbstractDiodeBlock implements IBE<T>, CommonRedstoneBlock {
+public abstract class AbstractRedstoneDiodeBlock<T extends AbstractRedstoneDiodeBlockEntity> extends AbstractDiodeBlock implements IBE<T> {
     public static BooleanProperty POWERING = BooleanProperty.create("powering");
 
     public AbstractRedstoneDiodeBlock(Properties builder) {
@@ -64,7 +64,7 @@ public abstract class AbstractRedstoneDiodeBlock<T extends AbstractRedstoneDiode
     }
 
     @Override
-    public boolean commonConnectRedstone(final BlockState state, final BlockGetter level, final BlockPos pos, @Nullable final Direction direction) {
+    public boolean canConnectRedstone(final BlockState state, final BlockGetter level, final BlockPos pos, @Nullable final Direction direction) {
         return direction != null;
     }
 
@@ -74,6 +74,11 @@ public abstract class AbstractRedstoneDiodeBlock<T extends AbstractRedstoneDiode
             return be.outputSignal;
         }
         return 0;
+    }
+
+    @Override
+    public boolean shouldCheckWeakPower(final BlockState state, final SignalGetter level, final BlockPos pos, final Direction side) {
+        return false;
     }
 
     @Override

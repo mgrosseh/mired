@@ -9,7 +9,6 @@ import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.INamedIc
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollOptionBehaviour;
 import com.simibubi.create.foundation.gui.AllIcons;
 import dev.engine_room.flywheel.lib.transform.TransformStack;
-import dev.simulated_team.simulated.content.blocks.redstone.redstone_accumulator.RedstoneAccumulatorBlock;
 import net.createmod.catnip.math.AngleHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -98,7 +97,7 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
 
         @Override
         public void rotate(final LevelAccessor levelAccessor, final BlockPos blockPos, final BlockState blockState, final PoseStack poseStack) {
-            final float yRot = AngleHelper.horizontalAngle(blockState.getValue(RedstoneAccumulatorBlock.FACING)) + 180;
+            final float yRot = AngleHelper.horizontalAngle(blockState.getValue(AnalogComputatorBlock.FACING)) + 180;
             TransformStack.of(poseStack)
                     .rotateYDegrees(yRot)
                     .rotateXDegrees(90);

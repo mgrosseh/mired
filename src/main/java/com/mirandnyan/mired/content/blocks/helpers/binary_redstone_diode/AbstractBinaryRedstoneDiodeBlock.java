@@ -9,7 +9,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
-public abstract class AbstractBinaryRedstoneDiodeBlock<T extends AbstractBinaryRedstoneDiodeBlockEntity> extends AbstractRedstoneDiodeBlock<T> implements IBE<T>, CommonRedstoneBlock {
+public abstract class AbstractBinaryRedstoneDiodeBlock<T extends AbstractBinaryRedstoneDiodeBlockEntity> extends AbstractRedstoneDiodeBlock<T> implements IBE<T> {
     public static BooleanProperty SIDE_POWERED = BooleanProperty.create("side_powered");
 
     public AbstractBinaryRedstoneDiodeBlock(Properties builder) {
