@@ -27,6 +27,7 @@ public class MiredCreativeModeTabs {
                             output.accept(MiredBlocks.getItem(MiredBlocks.ANALOG_SR_LATCH_BLOCK));
                             output.accept(MiredBlocks.getItem(MiredBlocks.COMPUTATOR));
                             output.accept(MiredBlocks.getItem(MiredBlocks.ANALOG_GATE_BLOCK));
+                            output.accept(MiredBlocks.getItem(MiredBlocks.MEASURING_REDSTONE_LINK));
                         }).build());
 
     public static void register(IEventBus modEventBus) {

@@ -12,10 +12,18 @@ import com.mirandnyan.mired.content.blocks.brass_encased_redstone.BrassEncasedRe
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockEntity;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockStateGen;
+import com.mirandnyan.mired.content.blocks.measuring_redstone_link.MeasuringRedstoneLinkBlock;
+import com.mirandnyan.mired.content.blocks.measuring_redstone_link.MeasuringRedstoneLinkBlockEntity;
+import com.mirandnyan.mired.content.blocks.measuring_redstone_link.MeasuringRedstoneLinkBlockStateGen;
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.content.redstone.link.RedstoneLinkBlockEntity;
+import com.simibubi.create.content.redstone.link.RedstoneLinkGenerator;
+import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
@@ -84,6 +92,16 @@ public class MiredBlocks {
             .build()
             .item()
             .transform(customItemModel())
+            .register();
+
+    public static final BlockEntry<MeasuringRedstoneLinkBlock> MEASURING_REDSTONE_LINK = REGISTRATE.block("measuring_redstone_link", MeasuringRedstoneLinkBlock::new)
+            .initialProperties(AllBlocks.REDSTONE_LINK::get)
+            .blockstate(new MeasuringRedstoneLinkBlockStateGen()::generate)
+            .blockEntity(MeasuringRedstoneLinkBlockEntity::new)
+            .renderer(() -> SmartBlockEntityRenderer::new)
+            .build()
+            .item()
+            .transform(customItemModel("_", "transmitter"))
             .register();
 
 
