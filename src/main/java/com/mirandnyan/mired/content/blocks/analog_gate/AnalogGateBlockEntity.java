@@ -82,7 +82,7 @@ public class AnalogGateBlockEntity extends AbstractRedstoneDiodeBlockEntity impl
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        MiredLang.translate(mode.translationKey).forGoggles(tooltip);
+        MiredLang.translate(mode.entry).forGoggles(tooltip);
         return true;
     }
 
@@ -90,10 +90,10 @@ public class AnalogGateBlockEntity extends AbstractRedstoneDiodeBlockEntity impl
         GREATER_EQUAL(MiredTranslations.TOOLTIP_MODE_GREATER_EQUAL),
         LESS_EQUAL(MiredTranslations.TOOLTIP_MODE_LESS_EQUAL);
 
-        private final String translationKey;
+        private final MiredTranslations.LangEntry entry;
 
         AnalogGateMode(MiredTranslations.LangEntry entry) {
-            this.translationKey = entry.translationKey;
+            this.entry = entry;
         }
     }
 
