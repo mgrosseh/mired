@@ -1,7 +1,7 @@
 package com.mirandnyan.mired.content.blocks.analog_sr_latch;
 
 import com.mirandnyan.mired.MiredBlocks;
-import com.mirandnyan.mired.content.blocks.helpers.AbstractBinaryRedstoneDiodeBlock;
+import com.mirandnyan.mired.content.blocks.helpers.binary_redstone_diode.AbstractBinaryRedstoneDiodeBlock;
 import com.mojang.serialization.MapCodec;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
@@ -41,16 +41,6 @@ public class AnalogSRLatchBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogS
     @Override
     public MapCodec<AnalogSRLatchBlock> codec() {
         return CODEC;
-    }
-
-
-    @Override
-    public BlockState updateShape(
-            BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos
-    ) {
-        return direction == Direction.DOWN && !this.canSurviveOn(level, neighborPos, neighborState)
-                ? Blocks.AIR.defaultBlockState()
-                : super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 
     @Override

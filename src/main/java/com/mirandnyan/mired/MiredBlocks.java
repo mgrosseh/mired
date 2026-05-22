@@ -12,16 +12,12 @@ import com.mirandnyan.mired.content.blocks.brass_encased_redstone.BrassEncasedRe
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockEntity;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockStateGen;
-import com.simibubi.create.AllBlocks;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -81,7 +77,7 @@ public class MiredBlocks {
             .renderer(() -> AnalogSRLatchRenderer::new)
             .register();
 
-    public static final BlockEntry<AnalogGateBlock> ANALOG_GATE_BLOACK = REGISTRATE.block("analog_gate", AnalogGateBlock::new)
+    public static final BlockEntry<AnalogGateBlock> ANALOG_GATE_BLOCK = REGISTRATE.block("analog_gate", AnalogGateBlock::new)
             .initialProperties(() -> Blocks.COMPARATOR)
             .blockstate(AnalogGateBlockStateGen.instance.generate())
             .blockEntity(AnalogGateBlockEntity::new)

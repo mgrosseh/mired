@@ -1,17 +1,13 @@
-package com.mirandnyan.mired.content.blocks.helpers;
+package com.mirandnyan.mired.content.blocks.helpers.binary_redstone_diode;
 
-import com.simibubi.create.content.redstone.diodes.AbstractDiodeBlock;
+import com.mirandnyan.mired.content.blocks.helpers.abstract_redstone_diode.AbstractRedstoneDiodeBlock;
 import com.simibubi.create.foundation.block.IBE;
 import dev.simulated_team.simulated.multiloader.CommonRedstoneBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractBinaryRedstoneDiodeBlock<T extends AbstractBinaryRedstoneDiodeBlockEntity> extends AbstractRedstoneDiodeBlock<T> implements IBE<T>, CommonRedstoneBlock {
     public static BooleanProperty SIDE_POWERED = BooleanProperty.create("side_powered");

@@ -1,4 +1,4 @@
-package com.mirandnyan.mired.content.blocks.helpers;
+package com.mirandnyan.mired.content.blocks.helpers.abstract_redstone_diode;
 
 import com.simibubi.create.content.redstone.diodes.AbstractDiodeBlock;
 import com.simibubi.create.foundation.block.IBE;

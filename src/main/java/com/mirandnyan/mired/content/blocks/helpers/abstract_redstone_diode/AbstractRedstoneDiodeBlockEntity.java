@@ -1,5 +1,6 @@
-package com.mirandnyan.mired.content.blocks.helpers;
+package com.mirandnyan.mired.content.blocks.helpers.abstract_redstone_diode;
 
+import com.mirandnyan.mired.content.blocks.helpers.binary_redstone_diode.AbstractBinaryRedstoneDiodeBlock;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;

@@ -2,7 +2,7 @@ package com.mirandnyan.mired.content.blocks.analog_sr_latch;
 
 import com.mirandnyan.mired.MiredLang;
 import com.mirandnyan.mired.MiredTranslations;
-import com.mirandnyan.mired.content.blocks.helpers.AbstractBinaryRedstoneDiodeBlockEntity;
+import com.mirandnyan.mired.content.blocks.helpers.binary_redstone_diode.AbstractBinaryRedstoneDiodeBlockEntity;
 import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.utility.CreateLang;

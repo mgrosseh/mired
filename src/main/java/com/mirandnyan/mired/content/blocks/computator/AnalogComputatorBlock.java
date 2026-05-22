@@ -1,7 +1,7 @@
 package com.mirandnyan.mired.content.blocks.computator;
 
 import com.mirandnyan.mired.MiredBlocks;
-import com.mirandnyan.mired.content.blocks.helpers.AbstractBinaryRedstoneDiodeBlock;
+import com.mirandnyan.mired.content.blocks.helpers.binary_redstone_diode.AbstractBinaryRedstoneDiodeBlock;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;

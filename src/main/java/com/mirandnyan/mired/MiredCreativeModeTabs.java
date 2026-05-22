@@ -26,6 +26,7 @@ public class MiredCreativeModeTabs {
                             output.accept(MiredBlocks.getItem(MiredBlocks.ANALOG_INVERTER_BLOCK));
                             output.accept(MiredBlocks.getItem(MiredBlocks.ANALOG_SR_LATCH_BLOCK));
                             output.accept(MiredBlocks.getItem(MiredBlocks.COMPUTATOR));
+                            output.accept(MiredBlocks.getItem(MiredBlocks.ANALOG_GATE_BLOCK));
                         }).build());
 
     public static void register(IEventBus modEventBus) {
