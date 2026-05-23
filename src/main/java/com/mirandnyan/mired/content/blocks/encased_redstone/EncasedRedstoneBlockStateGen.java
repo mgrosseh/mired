@@ -51,8 +51,9 @@ public class EncasedRedstoneBlockStateGen<T extends Block> extends BlockStateGen
 
         PipeBlock.PROPERTY_BY_DIRECTION.entrySet().forEach(e -> {
             Direction dir = e.getKey();
-            builder.part().modelFile(off).rotationX(dirToRotX(dir)).rotationY(dirToRotY(dir)).uvLock(true).addModel()
-                    .condition(e.getValue(), true);
+            var part = builder.part().modelFile(off).rotationX(dirToRotX(dir)).rotationY(dirToRotY(dir)).uvLock(true).addModel();
+            if (this.allowDirections) part.condition(e.getValue(), true);
+            part.end();
         });
 
     }
