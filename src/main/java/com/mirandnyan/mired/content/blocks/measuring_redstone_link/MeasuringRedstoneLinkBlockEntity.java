@@ -17,6 +17,8 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.List;
 
 public class MeasuringRedstoneLinkBlockEntity extends SmartBlockEntity {
+    // NOTE: Most of this class is almost an exact copy of Create's RedstoneLinkBlockEntity, sadly I wasn't able to just extend it
+    // I only renamed instances of RedstoneLinkBlock to MeasuringRedstoneLinkBlock, and removed FactoryPanelBehaviour.
     private boolean receivedSignalChanged;
     private int receivedSignal;
     private int transmittedSignal;

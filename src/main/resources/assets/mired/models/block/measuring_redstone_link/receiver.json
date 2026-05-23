@@ -1,4 +1,7 @@
 {
   "render_type": "cutout_mipped",
-  "parent": "create:block/redstone_link/receiver"
+  "parent": "create:block/redstone_link/receiver",
+  "textures": {
+    "redstone_bridge": "mired:block/measuring_redstone_link/measuring_redstone_link"
+  }
 }

@@ -4,12 +4,12 @@ import com.mirandnyan.mired.MiredBlocks;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.foundation.block.IBE;
 import com.simibubi.create.foundation.block.WrenchableDirectionalBlock;
-import net.createmod.catnip.data.Iterate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
@@ -23,11 +23,17 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class MeasuringRedstoneLinkBlock extends WrenchableDirectionalBlock implements IBE<MeasuringRedstoneLinkBlockEntity> {
+    // NOTE: Most of this class mimics behavior of Create's RedstoneLinkBlock exactly, sadly I wasn't able to just extend it.
+    // It starts after the comment.
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     public static final BooleanProperty RECEIVER = BooleanProperty.create("receiver");
 
@@ -69,18 +75,33 @@ public class MeasuringRedstoneLinkBlock extends WrenchableDirectionalBlock imple
 
     private static int getPower(Level level, BlockState state, BlockPos pos) {
         int power = 0;
-        for (Direction direction : Iterate.directions)
-            power = Math.max(level.getSignal(pos.relative(direction), direction), power);
-        for (Direction direction : Iterate.directions) {
-            if (state.getValue(FACING).getOpposite() != direction)
-                power = Math.max(level.getSignal(pos.relative(direction), Direction.UP), power);
+        Direction direction = state.getValue(FACING).getOpposite();
+        BlockPos blockpos = pos.relative(direction);
+        BlockState blockstate = level.getBlockState(blockpos);
+        if (blockstate.hasAnalogOutputSignal()) {
+            power = blockstate.getAnalogOutputSignal(level, blockpos);
+        } else if (blockstate.isRedstoneConductor(level, blockpos)) {
+            blockpos = blockpos.relative(direction);
+            blockstate = level.getBlockState(blockpos);
+            ItemFrame itemframe = getItemFrame(level, direction, blockpos);
+            int j = Math.max(itemframe == null ? Integer.MIN_VALUE : itemframe.getAnalogOutput(), blockstate.hasAnalogOutputSignal() ? blockstate.getAnalogOutputSignal(level, blockpos) : Integer.MIN_VALUE);
+            if (j != Integer.MIN_VALUE) {
+                power = j;
+            }
         }
-        return 8;
-        //return power;
+        return power;
     }
 
+    @Nullable
+    private static ItemFrame getItemFrame(Level level, Direction facing, BlockPos pos) {
+        List<ItemFrame> list = level.getEntitiesOfClass(ItemFrame.class,
+                new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1),
+                (frame) -> frame != null && frame.getDirection() == facing);
+        return list.size() == 1 ? list.getFirst() : null;
+    }
 
-    // CREATE REDSTONE LINK BEHAVIOUR
+    // CREATE REDSTONE LINK BEHAVIOR:
+
     @Override
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos,
                                 boolean isMoving) {
