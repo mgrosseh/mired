@@ -2,12 +2,13 @@
 MIRED
 =======
 
-WIP Readme.
+Adds various redstone components designed around analog signals.
+They aim to improve compactness and timings of complex redstone builds.
+Especially useful for e.g. automation with create.
 
 # Dependencies
 - NeoForge for Minecraft 1.21.1
 - Create (6.0.10)
-- Create Aeronautics (1.2.2) (maybe not needed, but needed for the future)
 
 # Additions
 ## Brass Encased Redstone
@@ -33,7 +34,7 @@ Right-clicking, cycles different modes.
 
 Current modes: greater than or equal and less than or equal.
 
-Maybe planned modes: (`<`, `<=`, `=`, `>=` and `>`); I will test how this feels first (since these can be built from the `<=` and `>=` modi).
+Maybe planned modes: (`<`, `<=`, `=`, `>=` and `>`); I will test how this feels first (since these can be built from the `<=` and `>=` modes).
 
 ## Measuring Redstone Link
 Works identical to redstone links in receive mode. 
@@ -49,6 +50,7 @@ Also works through blocks.
 - Ponder Scenes / Tooltips
 - Maybe one or two more blocks, though I am quite happy with the current selection.
 - Crafting Recipe Reworks, since I rushed them a little
+- Integration for Aeronautics fixing Measuring Redstone Link not working with some components.
 
 # about
 Made by Mirandnyan.
