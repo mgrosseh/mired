@@ -1,0 +1,30 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"2": "create:block/brass_casing",
+		"3": "mired:block/brass_encased_restone/brass_encased_redstone_on",
+		"particle": "create:block/threshold_switch_front"
+	},
+	"elements": [
+		{
+			"name": "up",
+			"from": [2.95, 15.9, 2.95],
+			"to": [13.05, 16.95, 13.05],
+			"faces": {
+				"north": {"uv": [13, 12, 3, 13], "rotation": 180, "texture": "#3"},
+				"east": {"uv": [4, 3, 3, 13], "rotation": 270, "texture": "#3"},
+				"south": {"uv": [13, 3, 3, 4], "texture": "#3"},
+				"west": {"uv": [13, 3, 12, 13], "rotation": 90, "texture": "#3"},
+				"up": {"uv": [3, 3, 13, 13], "rotation": 180, "texture": "#3"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		}
+	}
+}

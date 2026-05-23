@@ -3,6 +3,11 @@
     {
       "apply": {
         "model": "mired:block/copper_encased_redstone/block"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/encased_redstone/connector"
       },
       "when": {
         "power": "0"
@@ -10,7 +15,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "1"
@@ -18,7 +23,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "2"
@@ -26,7 +31,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "3"
@@ -34,7 +39,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "4"
@@ -42,7 +47,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "5"
@@ -50,7 +55,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "6"
@@ -58,7 +63,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "7"
@@ -66,7 +71,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "8"
@@ -74,7 +79,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "9"
@@ -82,7 +87,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "10"
@@ -90,7 +95,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "11"
@@ -98,7 +103,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "12"
@@ -106,7 +111,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "13"
@@ -114,7 +119,7 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "14"
@@ -122,10 +127,72 @@
     },
     {
       "apply": {
-        "model": "mired:block/copper_encased_redstone/block_on"
+        "model": "mired:block/encased_redstone/connector_on"
       },
       "when": {
         "power": "15"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/encased_redstone/connector",
+        "uvlock": true,
+        "x": 180
+      },
+      "when": {
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/encased_redstone/connector",
+        "uvlock": true
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/encased_redstone/connector",
+        "uvlock": true,
+        "x": 90,
+        "y": 270
+      },
+      "when": {
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/encased_redstone/connector",
+        "uvlock": true,
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/encased_redstone/connector",
+        "uvlock": true,
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/encased_redstone/connector",
+        "uvlock": true,
+        "x": 90
+      },
+      "when": {
+        "east": "true"
       }
     }
   ]

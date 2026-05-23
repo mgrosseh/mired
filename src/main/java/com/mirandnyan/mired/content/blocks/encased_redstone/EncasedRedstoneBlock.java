@@ -1,4 +1,4 @@
-package com.mirandnyan.mired.content.blocks.brass_encased_redstone;
+package com.mirandnyan.mired.content.blocks.encased_redstone;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,11 +14,11 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 import javax.annotation.Nullable;
 
-public class BrassEncasedRedstoneBlock extends Block {
+public class EncasedRedstoneBlock extends Block {
 
     public static final IntegerProperty POWER = BlockStateProperties.POWER;
 
-    public BrassEncasedRedstoneBlock(Properties properties) {
+    public EncasedRedstoneBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(POWER, 0));
     }
@@ -30,15 +30,19 @@ public class BrassEncasedRedstoneBlock extends Block {
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        return super.getStateForPlacement(context)
-                .setValue(POWER, context.getLevel().getBestNeighborSignal(context.getClickedPos()));
-    }
+        var state = super.getStateForPlacement(context);
 
+       return state.setValue(POWER, getBestNeighborSignal(state, context.getLevel(), context.getClickedPos()));
+    }
     @Override
     public void neighborChanged(BlockState state, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving) {
         super.neighborChanged(state, world, pos, neighborBlock, fromPos, moving);
-        int pow = world.getBestNeighborSignal(pos);
-        world.setBlock(pos, state.setValue(POWER, Mth.clamp(pow, 0, 15)), 1 | 2 | 4);
+        int pow = getBestNeighborSignal(state, world, pos);
+        world.setBlock(pos, state.setValue(POWER, Mth.clamp(pow, 0, 15)), UPDATE_ALL | UPDATE_INVISIBLE);
+    }
+
+    protected int getBestNeighborSignal(BlockState state, Level level, BlockPos pos) {
+        return level.getBestNeighborSignal(pos);
     }
 
     @Override
