@@ -6,14 +6,13 @@ import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.PipeBlock;
-import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder;
 
 public class EncasedRedstoneBlockStateGen<T extends Block> extends BlockStateGenerator<T> {
     public static EncasedRedstoneBlockStateGen<EncasedRedstoneBlock> basic =
             new EncasedRedstoneBlockStateGen<>(false);
-    public static EncasedRedstoneBlockStateGen<BrassEncasedRedstoneBlock> wrenchable =
+    public static EncasedRedstoneBlockStateGen<WrenchableEncasedRedstoneBlock> wrenchable =
             new EncasedRedstoneBlockStateGen<>(true);
 
     protected boolean allowDirections;
@@ -36,48 +35,16 @@ public class EncasedRedstoneBlockStateGen<T extends Block> extends BlockStateGen
                 .addModel()
                 .end();
 
-        for (final BlockState state : ctx.get().getStateDefinition().getPossibleStates()) {
-            final int power = state.getValue(EncasedRedstoneBlock.POWER);
-
-            builder.part()
-                    .modelFile(power == 0 ? off : on)
-                    .addModel()
-                    .condition(EncasedRedstoneBlock.POWER, power)
-                    .end();
-
-            // add main
-            // for dir: if allowDir || prop_true => show part
-        }
-
         PipeBlock.PROPERTY_BY_DIRECTION.entrySet().forEach(e -> {
             Direction dir = e.getKey();
-            var part = builder.part().modelFile(off).rotationX(dirToRotX(dir)).rotationY(dirToRotY(dir)).uvLock(true).addModel();
+            var part = rotate(builder.part().modelFile(off), dir).uvLock(true).addModel();
             if (this.allowDirections) part.condition(e.getValue(), true);
+            part.condition(EncasedRedstoneBlock.POWER, 0);
             part.end();
+            var part2 = rotate(builder.part().modelFile(on), dir).uvLock(true).addModel();
+            if (this.allowDirections) part2.condition(e.getValue(), true);
+            part2.condition(EncasedRedstoneBlock.POWER, 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
+            part2.end();
         });
-
     }
-
-    protected static int dirToRotX(Direction dir) {
-        return switch (dir) {
-            case DOWN -> 180;
-            case UP -> 0;
-            case NORTH -> 90;
-            case SOUTH -> 90;
-            case WEST -> 90;
-            case EAST -> 90;
-        };
-    }
-
-    protected static int dirToRotY(Direction dir) {
-        return switch (dir) {
-            case DOWN -> 0;
-            case UP -> 0;
-            case NORTH -> 270;
-            case SOUTH -> 90;
-            case WEST -> 180;
-            case EAST -> 0;
-        };
-    }
-
 }

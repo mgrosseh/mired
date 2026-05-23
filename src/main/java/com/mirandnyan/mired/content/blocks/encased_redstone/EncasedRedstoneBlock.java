@@ -35,10 +35,14 @@ public class EncasedRedstoneBlock extends Block {
        return state.setValue(POWER, getBestNeighborSignal(state, context.getLevel(), context.getClickedPos()));
     }
     @Override
-    public void neighborChanged(BlockState state, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving) {
-        super.neighborChanged(state, world, pos, neighborBlock, fromPos, moving);
-        int pow = getBestNeighborSignal(state, world, pos);
-        world.setBlock(pos, state.setValue(POWER, Mth.clamp(pow, 0, 15)), UPDATE_ALL | UPDATE_INVISIBLE);
+    public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving) {
+        super.neighborChanged(state, level, pos, neighborBlock, fromPos, moving);
+        updateSignal(state, level, pos);
+    }
+
+    protected void updateSignal(BlockState state, Level level, BlockPos pos) {
+        int pow = getBestNeighborSignal(state, level, pos);
+        level.setBlock(pos, state.setValue(POWER, Mth.clamp(pow, 0, 15)), UPDATE_ALL | UPDATE_INVISIBLE);
     }
 
     protected int getBestNeighborSignal(BlockState state, Level level, BlockPos pos) {

@@ -1,5 +1,6 @@
 package com.mirandnyan.mired.content.blocks.encased_redstone;
 
+import com.simibubi.create.AllKeys;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -7,6 +8,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.SignalGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,7 +18,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 import java.util.Map;
 
-public class BrassEncasedRedstoneBlock extends EncasedRedstoneBlock implements IWrenchable {
+public class WrenchableEncasedRedstoneBlock extends EncasedRedstoneBlock implements IWrenchable {
     public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
     public static final BooleanProperty EAST = BlockStateProperties.EAST;
     public static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
@@ -25,7 +27,7 @@ public class BrassEncasedRedstoneBlock extends EncasedRedstoneBlock implements I
     public static final BooleanProperty DOWN = BlockStateProperties.DOWN;
     public static final Map<Direction, BooleanProperty> PROPERTY_BY_DIRECTION = PipeBlock.PROPERTY_BY_DIRECTION;
 
-    public BrassEncasedRedstoneBlock(Properties properties) {
+    public WrenchableEncasedRedstoneBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(POWER, 0)
@@ -80,10 +82,22 @@ public class BrassEncasedRedstoneBlock extends EncasedRedstoneBlock implements I
     }
 
     @Override
+    public boolean shouldCheckWeakPower(BlockState state, SignalGetter level, BlockPos pos, Direction side) {
+        if (state.getValue(PROPERTY_BY_DIRECTION.get(side.getOpposite())))
+            return state.isRedstoneConductor(level, pos);
+        return false;
+    }
+
+    @Override
     public InteractionResult onWrenched(BlockState state, UseOnContext context) {
         var face = context.getClickedFace();
+        if (AllKeys.altDown())
+            face = face.getOpposite();
+
         var property = PROPERTY_BY_DIRECTION.get(face);
-        context.getLevel().setBlock(context.getClickedPos(), state.cycle(property), UPDATE_ALL | UPDATE_INVISIBLE);
+        var new_state = state.cycle(property);
+        context.getLevel().setBlock(context.getClickedPos(), new_state, UPDATE_ALL | UPDATE_INVISIBLE);
+        updateSignal(new_state, context.getLevel(), context.getClickedPos());
         return InteractionResult.SUCCESS;
     }
 }

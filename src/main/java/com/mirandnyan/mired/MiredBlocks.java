@@ -8,7 +8,7 @@ import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockEn
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockStateGen;
 import com.mirandnyan.mired.content.blocks.analog_sr_latch.*;
 import com.mirandnyan.mired.content.blocks.encased_redstone.EncasedRedstoneBlock;
-import com.mirandnyan.mired.content.blocks.encased_redstone.BrassEncasedRedstoneBlock;
+import com.mirandnyan.mired.content.blocks.encased_redstone.WrenchableEncasedRedstoneBlock;
 import com.mirandnyan.mired.content.blocks.encased_redstone.EncasedRedstoneBlockStateGen;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockEntity;
@@ -18,6 +18,8 @@ import com.mirandnyan.mired.content.blocks.measuring_redstone_link.MeasuringReds
 import com.mirandnyan.mired.content.blocks.measuring_redstone_link.MeasuringRedstoneLinkBlockStateGen;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
+import com.simibubi.create.AllSpriteShifts;
+import com.simibubi.create.content.decoration.encasing.EncasedCTBehaviour;
 import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
@@ -39,8 +41,9 @@ import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 public class MiredBlocks {
     private static final CreateRegistrate REGISTRATE = Mired.getRegistrate();
 
-    public static final BlockEntry<BrassEncasedRedstoneBlock> BRASS_ENCASED_REDSTONE = REGISTRATE.block("brass_encased_redstone", BrassEncasedRedstoneBlock::new)
+    public static final BlockEntry<WrenchableEncasedRedstoneBlock> BRASS_ENCASED_REDSTONE = REGISTRATE.block("brass_encased_redstone", WrenchableEncasedRedstoneBlock::new)
             .initialProperties(AllBlocks.BRASS_CASING)
+            .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(AllSpriteShifts.BRASS_CASING)))
             .blockstate(EncasedRedstoneBlockStateGen.wrenchable.generate())
             .properties(prop -> prop
                     .strength(3.0f, 6.0f)
@@ -56,9 +59,10 @@ public class MiredBlocks {
             .transform(customItemModel())
             .register();
 
-    public static final BlockEntry<EncasedRedstoneBlock> COPPER_ENCASED_REDSTONE = REGISTRATE.block("copper_encased_redstone", EncasedRedstoneBlock::new)
+    public static final BlockEntry<WrenchableEncasedRedstoneBlock> COPPER_ENCASED_REDSTONE = REGISTRATE.block("copper_encased_redstone", WrenchableEncasedRedstoneBlock::new)
             .initialProperties(AllBlocks.COPPER_CASING)
-            .blockstate(EncasedRedstoneBlockStateGen.basic.generate())
+            .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(AllSpriteShifts.COPPER_CASING)))
+            .blockstate(EncasedRedstoneBlockStateGen.wrenchable.generate())
             .properties(prop -> prop
                     .strength(3.0f, 6.0f)
                     .sound(SoundType.COPPER)
@@ -73,9 +77,10 @@ public class MiredBlocks {
             .transform(customItemModel())
             .register();
 
-    public static final BlockEntry<EncasedRedstoneBlock> ANDESITE_ENCASED_REDSTONE = REGISTRATE.block("andesite_encased_redstone", EncasedRedstoneBlock::new)
+    public static final BlockEntry<WrenchableEncasedRedstoneBlock> ANDESITE_ENCASED_REDSTONE = REGISTRATE.block("andesite_encased_redstone", WrenchableEncasedRedstoneBlock::new)
             .initialProperties(AllBlocks.ANDESITE_CASING)
-            .blockstate(EncasedRedstoneBlockStateGen.basic.generate())
+            .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(AllSpriteShifts.ANDESITE_CASING)))
+            .blockstate(EncasedRedstoneBlockStateGen.wrenchable.generate())
             .properties(prop -> prop
                     .strength(3.0f, 6.0f)
                     .requiresCorrectToolForDrops())
