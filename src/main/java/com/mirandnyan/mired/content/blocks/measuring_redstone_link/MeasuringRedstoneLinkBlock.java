@@ -200,7 +200,7 @@ public class MeasuringRedstoneLinkBlock extends WrenchableDirectionalBlock imple
 
     @Override
     public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, Direction side) {
-        return side != null;
+        return side != null && state.getValue(RECEIVER);
     }
 
     @Override
