@@ -1,6 +1,7 @@
 package com.mirandnyan.mired;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.tterrag.registrate.providers.ProviderType;
 import net.createmod.catnip.lang.LangBuilder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -33,6 +34,7 @@ public class Mired {
         REGISTRATE.setCreativeTab(MiredCreativeModeTabs.MAIN);
 
         MiredBlocks.register();
+        MiredItems.register();
         MiredCreativeModeTabs.register(modEventBus);
 
         MiredTranslations.register();

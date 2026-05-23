@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "mired:diode_base"
+    },
+    "C": {
+      "item": "mired:computation_circuit"
+    },
+    "T": {
+      "item": "minecraft:redstone_torch"
+    }
+  },
+  "pattern": [
+    "T",
+    "C",
+    "B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mired:analog_computator"
+  }
+}

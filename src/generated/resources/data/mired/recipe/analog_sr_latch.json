@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:analog_lever"
+    },
+    "B": {
+      "item": "mired:diode_base"
+    },
+    "E": {
+      "item": "create:electron_tube"
+    },
+    "T": {
+      "item": "minecraft:redstone_torch"
+    }
+  },
+  "pattern": [
+    " T ",
+    " A ",
+    "EBE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mired:analog_sr_latch"
+  }
+}

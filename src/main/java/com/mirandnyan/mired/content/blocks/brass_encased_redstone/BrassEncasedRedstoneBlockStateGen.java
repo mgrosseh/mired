@@ -12,13 +12,13 @@ public class BrassEncasedRedstoneBlockStateGen extends BlockStateGenerator<Brass
     public static BrassEncasedRedstoneBlockStateGen instance = new BrassEncasedRedstoneBlockStateGen();
 
     protected BrassEncasedRedstoneBlockStateGen() {
-        super("brass_encased_redstone");
+        super("brass_encased_redstone"); // model_location unused
     }
 
     @Override
     public <P extends BrassEncasedRedstoneBlock> void generator(DataGenContext<Block, P> ctx, RegistrateBlockstateProvider prov) {
-        final ModelFile off = block_model(prov, "block");
-        final ModelFile on = block_model(prov, "block_on");
+        final ModelFile off = block_model(prov, ctx.getName(), "block");
+        final ModelFile on = block_model(prov, ctx.getName(), "block_on");
 
         final MultiPartBlockStateBuilder builder = prov.getMultipartBuilder(ctx.get());
 
