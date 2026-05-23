@@ -62,7 +62,6 @@ Also works through blocks.
 - Ponder Scenes / Tooltips
 - Maybe one or two more blocks, though I am quite happy with the current selection.
 - Integration for Aeronautics fixing Measuring Redstone Link not working with some components.
-- Make different kinds of Encased Redstone not interact with each other
 
 # About
 Made by Mirandnyan.
