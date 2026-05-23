@@ -11,8 +11,17 @@ Especially useful for e.g. automation with create.
 - Create (6.0.10)
 
 # Additions
-## Brass Encased Redstone
+## Encased Redstone
 Like redstone but as a block, i.e. vertical.
+
+Comes in 3 variants: **Andesite**, **Copper** and **Brass**.
+Right now they all behave the same and interchange, these might be subject to more interesting change.
+Currently, they all transmit power to each other, so can be used interchangeably. 
+I plan to make them at least not interact with each other.
+
+The model also might change somewhat.
+
+The behavior of Andesite Encased Redstone will not change significantly.
 
 ## Analog Computator
 Select computation mode (add, subtract, multiply, divide) and `output = side-input <> back-input` where `<>` is the 
@@ -51,8 +60,9 @@ Also works through blocks.
 - Maybe one or two more blocks, though I am quite happy with the current selection.
 - Crafting Recipe Reworks, since I rushed them a little
 - Integration for Aeronautics fixing Measuring Redstone Link not working with some components.
+- Make different kinds of Encased Redstone not interact with each other
 
-# about
+# About
 Made by Mirandnyan.
 
 Special thanks to [Frizi](https://github.com/Frizi) who has helped me bugfixing.

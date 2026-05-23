@@ -16,19 +16,28 @@ import com.mirandnyan.mired.content.blocks.measuring_redstone_link.MeasuringReds
 import com.mirandnyan.mired.content.blocks.measuring_redstone_link.MeasuringRedstoneLinkBlockEntity;
 import com.mirandnyan.mired.content.blocks.measuring_redstone_link.MeasuringRedstoneLinkBlockStateGen;
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllItems;
 import com.simibubi.create.content.redstone.link.RedstoneLinkBlockEntity;
 import com.simibubi.create.content.redstone.link.RedstoneLinkGenerator;
 import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.neoforged.neoforge.common.Tags;
 
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 
@@ -36,20 +45,52 @@ public class MiredBlocks {
     private static final CreateRegistrate REGISTRATE = Mired.getRegistrate();
 
     public static final BlockEntry<BrassEncasedRedstoneBlock> BRASS_ENCASED_REDSTONE = REGISTRATE.block("brass_encased_redstone", BrassEncasedRedstoneBlock::new)
-            .initialProperties(() -> Blocks.COPPER_BLOCK)
+            .initialProperties(AllBlocks.BRASS_CASING)
             .blockstate(BrassEncasedRedstoneBlockStateGen.instance.generate())
             .properties(prop -> prop
                     .strength(3.0f, 6.0f)
                     .sound(SoundType.COPPER)
                     .requiresCorrectToolForDrops())
             .item()
-//            .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
-//                    .pattern("A")
-//                    .pattern("B")
-//                    .pattern("")
-//                    .define('A', AllBlocks.BRASS_CASING.asItem())
-//                    .define('B', Items.REDSTONE)
-//            )
+            .recipe((c, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, c.get(), 1)
+                    .requires(AllBlocks.BRASS_CASING.asItem())
+                    .requires(Items.REDSTONE)
+                    .unlockedBy("has_ingredient", RegistrateRecipeProvider.has(AllBlocks.BRASS_CASING.asItem()))
+                    .save(p, Mired.asResource("brass_encased_redstone"))
+            )
+            .transform(customItemModel())
+            .register();
+
+    public static final BlockEntry<BrassEncasedRedstoneBlock> COPPER_ENCASED_REDSTONE = REGISTRATE.block("copper_encased_redstone", BrassEncasedRedstoneBlock::new)
+            .initialProperties(AllBlocks.COPPER_CASING)
+            .blockstate(BrassEncasedRedstoneBlockStateGen.instance.generate())
+            .properties(prop -> prop
+                    .strength(3.0f, 6.0f)
+                    .sound(SoundType.COPPER)
+                    .requiresCorrectToolForDrops())
+            .item()
+            .recipe((c, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, c.get(), 1)
+                    .requires(AllBlocks.COPPER_CASING.asItem())
+                    .requires(Items.REDSTONE)
+                    .unlockedBy("has_ingredient", RegistrateRecipeProvider.has(AllBlocks.COPPER_CASING.asItem()))
+                    .save(p, Mired.asResource("copper_encased_redstone"))
+            )
+            .transform(customItemModel())
+            .register();
+
+    public static final BlockEntry<BrassEncasedRedstoneBlock> ANDESITE_ENCASED_REDSTONE = REGISTRATE.block("andesite_encased_redstone", BrassEncasedRedstoneBlock::new)
+            .initialProperties(AllBlocks.ANDESITE_CASING)
+            .blockstate(BrassEncasedRedstoneBlockStateGen.instance.generate())
+            .properties(prop -> prop
+                    .strength(3.0f, 6.0f)
+                    .requiresCorrectToolForDrops())
+            .item()
+            .recipe((c, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, c.get(), 1)
+                    .requires(AllBlocks.ANDESITE_CASING.asItem())
+                    .requires(Items.REDSTONE)
+                    .unlockedBy("has_ingredient", RegistrateRecipeProvider.has(AllBlocks.ANDESITE_CASING.asItem()))
+                    .save(p, Mired.asResource("andesite_encased_redstone"))
+            )
             .transform(customItemModel())
             .register();
 
@@ -59,6 +100,16 @@ public class MiredBlocks {
             .blockEntity(AnalogComputatorBlockEntity::new)
             .build()
             .item()
+            .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
+                    .pattern("T")
+                    .pattern("C")
+                    .pattern("B")
+                    .define('T', Items.REDSTONE_TORCH)
+                    .define('C', MiredItems.COMPUTATION_CIRCUIT)
+                    .define('B', MiredItems.DIODE_BASE)
+                    .unlockedBy("has_ingredient", RegistrateRecipeProvider.has(AllItems.BRASS_SHEET))
+                    .save(p, Mired.asResource("analog_computator"))
+            )
             .transform(customItemModel())
             .register();
 
@@ -68,13 +119,36 @@ public class MiredBlocks {
             .blockEntity(AnalogInverterBlockEntity::new)
             .build()
             .item()
+            .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
+                    .pattern("  R")
+                    .pattern("TCR")
+                    .pattern("SSS")
+                    .define('R', Items.REDSTONE)
+                    .define('T', Items.REDSTONE_TORCH)
+                    .define('C', Items.COMPARATOR)
+                    .define('S', MiredTags.Items.STONES)
+                    .unlockedBy("has_ingredient", RegistrateRecipeProvider.has(Items.COMPARATOR))
+                    .save(p, Mired.asResource("analog_inverter"))
+            )
             .transform(customItemModel())
             .register();
 
     public static final BlockEntry<AnalogSRLatchBlock> ANALOG_SR_LATCH_BLOCK = REGISTRATE.block("analog_sr_latch", AnalogSRLatchBlock::new)
+            .lang("Analog SR Latch")
             .initialProperties(() -> Blocks.COMPARATOR)
             .blockstate(AnalogSRLatchBlockStateGen.instance.generate())
             .item()
+            .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
+                    .pattern(" T ")
+                    .pattern(" A ")
+                    .pattern("EBE")
+                    .define('T', Items.REDSTONE_TORCH)
+                    .define('A', AllBlocks.ANALOG_LEVER.asItem())
+                    .define('E', AllItems.ELECTRON_TUBE)
+                    .define('B', MiredItems.DIODE_BASE)
+                    .unlockedBy("has_ingredient", RegistrateRecipeProvider.has(MiredItems.DIODE_BASE))
+                    .save(p, Mired.asResource("analog_sr_latch"))
+            )
             .transform(customItemModel())
             .register();
 
@@ -91,6 +165,17 @@ public class MiredBlocks {
             .blockEntity(AnalogGateBlockEntity::new)
             .build()
             .item()
+            .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
+                    .pattern(" T ")
+                    .pattern("EBE")
+                    .pattern(" R ")
+                    .define('B', MiredItems.DIODE_BASE)
+                    .define('T', Items.REDSTONE_TORCH)
+                    .define('R', Items.REDSTONE)
+                    .define('E', Items.ECHO_SHARD)
+                    .unlockedBy("has_ingredient", RegistrateRecipeProvider.has(MiredItems.DIODE_BASE))
+                    .save(p, Mired.asResource("analog_gate"))
+            )
             .transform(customItemModel())
             .register();
 
@@ -101,9 +186,14 @@ public class MiredBlocks {
             .renderer(() -> SmartBlockEntityRenderer::new)
             .build()
             .item()
+            .recipe((c, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, c.get(), 1)
+                    .requires(AllBlocks.REDSTONE_LINK.asItem())
+                    .requires(Items.COMPARATOR)
+                    .unlockedBy("has_ingredient", RegistrateRecipeProvider.has(AllBlocks.REDSTONE_LINK.asItem()))
+                    .save(p, Mired.asResource("measuring_redstone_link"))
+            )
             .transform(customItemModel("_", "transmitter"))
             .register();
-
 
 
 

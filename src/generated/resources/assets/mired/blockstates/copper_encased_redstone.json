@@ -1,0 +1,132 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block"
+      },
+      "when": {
+        "power": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "5"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "6"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "7"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "8"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "9"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "10"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "11"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "12"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "13"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "14"
+      }
+    },
+    {
+      "apply": {
+        "model": "mired:block/copper_encased_redstone/block_on"
+      },
+      "when": {
+        "power": "15"
+      }
+    }
+  ]
+}

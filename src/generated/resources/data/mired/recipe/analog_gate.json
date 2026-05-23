@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "mired:diode_base"
+    },
+    "E": {
+      "item": "minecraft:echo_shard"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "T": {
+      "item": "minecraft:redstone_torch"
+    }
+  },
+  "pattern": [
+    " T ",
+    "EBE",
+    " R "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mired:analog_gate"
+  }
+}

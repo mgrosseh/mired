@@ -13,10 +13,10 @@ public class MeasuringRedstoneLinkBlockStateGen extends RedstoneLinkGenerator {
     @Override
     public <T extends Block> ModelFile getModel(DataGenContext<Block, T> ctx, RegistrateBlockstateProvider prov,
                                                 BlockState state) {
-        String variant = state.getValue(RedstoneLinkBlock.RECEIVER) ? "receiver" : "transmitter";
-        if (state.getValue(RedstoneLinkBlock.FACING).getAxis().isHorizontal())
+        String variant = state.getValue(MeasuringRedstoneLinkBlock.RECEIVER) ? "receiver" : "transmitter";
+        if (state.getValue(MeasuringRedstoneLinkBlock.FACING).getAxis().isHorizontal())
             variant += "_vertical";
-        if (state.getValue(RedstoneLinkBlock.POWERED))
+        if (state.getValue(MeasuringRedstoneLinkBlock.POWERED))
             variant += "_powered";
 
         return prov.models().getExistingFile(prov.modLoc("block/measuring_redstone_link/" + variant));

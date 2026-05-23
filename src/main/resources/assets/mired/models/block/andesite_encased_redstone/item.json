@@ -1,0 +1,6 @@
+{
+  "parent": "mired:block/brass_encased_redstone/item",
+  "textures": {
+    "2": "create:block/andesite_casing"
+  }
+}

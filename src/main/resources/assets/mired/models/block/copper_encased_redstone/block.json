@@ -1,0 +1,7 @@
+{
+  "parent": "mired:block/brass_encased_redstone/block",
+  "textures": {
+    "2": "create:block/copper_casing",
+    "particle": "create:block/copper_casing"
+  }
+}
