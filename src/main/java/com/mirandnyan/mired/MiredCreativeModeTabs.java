@@ -18,7 +18,7 @@ public class MiredCreativeModeTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MAIN =
         CREATIVE_MODE_TABS.register("mired_tab",
                 () -> CreativeModeTab.builder()
-                        .title(Component.translatable("itemGroup.mired"))
+                        .title(MiredTranslations.CREATIVE_MODE_TAB.resolveComponent())
                         .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
                         .icon(() -> MiredBlocks.getItem(MiredBlocks.BRASS_ENCASED_REDSTONE).asStack())
                         .displayItems((parameters, output) -> {

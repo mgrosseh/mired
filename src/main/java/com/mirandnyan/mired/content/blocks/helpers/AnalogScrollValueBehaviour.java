@@ -18,7 +18,7 @@ public class AnalogScrollValueBehaviour extends ScrollValueBehaviour {
 
     @Override
     public ValueSettingsBoard createBoard(final Player player, final BlockHitResult hitResult) {
-        return new ValueSettingsBoard(this.label, this.max, 15, ImmutableList.of(Component.translatable(MiredTranslations.ANALOG_SCROLL_VALUE.translationKey)),
+        return new ValueSettingsBoard(this.label, this.max, 15, ImmutableList.of(MiredTranslations.ANALOG_SCROLL_VALUE.resolveComponent()),
                 new ValueSettingsFormatter(ValueSettings::format));
     }
 }

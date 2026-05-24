@@ -1,5 +1,8 @@
 package com.mirandnyan.mired;
 
+import net.minecraft.locale.Language;
+import net.minecraft.network.chat.Component;
+
 /** AKA Lang */
 public class MiredTranslations {
     public static final LangEntry CREATIVE_MODE_TAB = new LangEntry("itemGroup", Mired.MOD_ID, Mired.MOD_NAME);
@@ -22,8 +25,6 @@ public class MiredTranslations {
     public static final LangEntry TOOLTIP_MODE_GREATER_EQUAL = new LangEntry("tooltip.analog_gate.mode.greater_equal", "Greater than or Equal");
     public static final LangEntry TOOLTIP_MODE_LESS_EQUAL = new LangEntry("tooltip.analog_gate.mode.less_equal", "Less than or Equal");
 
-
-
     public static class LangEntry {
         public String textEnglish;
         public String translationKey;
@@ -34,6 +35,13 @@ public class MiredTranslations {
             this.textEnglish = textEnglish;
             this.translationKey = (prefix.isEmpty() ? "" : prefix + ".") + translationKey;
             Mired.getRegistrate().addRawLang(this.translationKey, textEnglish);
+        }
+
+        public Component resolveComponent() {
+            return Component.translatable(translationKey);
+        }
+        public String resolveString() {
+            return Language.getInstance().getOrDefault(translationKey);
         }
     }
 

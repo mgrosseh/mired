@@ -46,7 +46,7 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
     @Override
     public void addBehaviours(final List<BlockEntityBehaviour> behaviours) {
         this.computationMode = new ScrollOptionBehaviour<>(ComputationMode.class,
-                Component.translatable(MiredTranslations.COMPUTATION_MODE.translationKey),
+                MiredTranslations.COMPUTATION_MODE.resolveComponent(),
                 this,
                 new AnalogComputatorValueBoxTransform());
 

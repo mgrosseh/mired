@@ -1,11 +1,13 @@
 package com.mirandnyan.mired;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.infrastructure.data.CreateDatagen;
 import com.tterrag.registrate.providers.ProviderType;
 import net.createmod.catnip.lang.LangBuilder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.neoforged.bus.api.EventPriority;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -38,6 +40,8 @@ public class Mired {
         MiredCreativeModeTabs.register(modEventBus);
 
         MiredTranslations.register();
+
+        modEventBus.addListener(EventPriority.HIGHEST, MiredDatagen::gatherDataHighPriority);
     }
 
     public static CreateRegistrate getRegistrate() {

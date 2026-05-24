@@ -47,7 +47,7 @@ public class AnalogGateBlockEntity extends AbstractRedstoneDiodeBlockEntity impl
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
         this.gateValue = new AnalogScrollValueBehaviour(
-                Component.translatable(MiredTranslations.GATE_VALUE.translationKey),
+                MiredTranslations.GATE_VALUE.resolveComponent(),
                 this, new AnalogGateValueBoxTransform());
         this.gateValue.between(0, 15);
         this.gateValue.value = 8;
@@ -86,7 +86,7 @@ public class AnalogGateBlockEntity extends AbstractRedstoneDiodeBlockEntity impl
         return true;
     }
 
-    protected enum AnalogGateMode {
+    public enum AnalogGateMode {
         GREATER_EQUAL(MiredTranslations.TOOLTIP_MODE_GREATER_EQUAL),
         LESS_EQUAL(MiredTranslations.TOOLTIP_MODE_LESS_EQUAL);
 
