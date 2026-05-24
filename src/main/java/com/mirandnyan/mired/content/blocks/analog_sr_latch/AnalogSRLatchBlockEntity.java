@@ -27,6 +27,7 @@ public class AnalogSRLatchBlockEntity extends AbstractBinaryRedstoneDiodeBlockEn
     public AnalogSRLatchBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
         clientState = LerpedFloat.linear();
+        risingEdgeOnlyMode = true;
     }
 
     @Override

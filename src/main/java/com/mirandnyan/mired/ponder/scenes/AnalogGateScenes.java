@@ -12,7 +12,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 public class AnalogGateScenes {
-    public static Scene GreateThanOrEqual = new Scene("analog_gate", "Using Analog Gates", 5) {
+    public static Scene AnalogGate = new Scene("analog_gate", "Using Analog Gates", 5) {
         @Override
         public void scene(CreateSceneBuilder scene, CreateSceneBuilder.WorldInstructions world,
                           OverlayInstructions overlay, SelectionUtil select, VectorUtil vector,
@@ -34,7 +34,6 @@ public class AnalogGateScenes {
             final Selection input = select.fromTo(analogLeverPos, inputDust).add(select.position(inputNixiePos));
             final Selection output = select.fromTo(outputDust, outputNixiePos);
 
-            // TODO final
             final Vec3 analogGateCenter = vector.centerOf(analogGatePos).add(0, -4 / 16.f, 0);
             final AABB baseOutline = getDiodeBaseOutline(analogGatePos);
             final Vec3 strengthConfigPanel = vector.blockSurface(analogGatePos, Direction.DOWN).add(0, 3 / 16f, 0);
