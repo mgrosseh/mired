@@ -10,7 +10,7 @@ public class AnalogComputatorScene extends Scene {
     }
 
     @Override
-    public void scene(CreateSceneBuilder scene, CreateSceneBuilder.WorldInstructions world, OverlayInstructions overlay, SelectionUtil select, VectorUtil vectorUtil, EffectInstructions effects, PositionUtil grid) {
+    public void scene(CreateSceneBuilder scene, CreateSceneBuilder.WorldInstructions world, OverlayInstructions overlay, SelectionUtil select, VectorUtil vector, EffectInstructions effects, PositionUtil grid) {
 
     }
 }

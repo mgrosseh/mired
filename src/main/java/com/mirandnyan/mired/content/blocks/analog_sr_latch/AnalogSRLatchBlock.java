@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
 public class AnalogSRLatchBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogSRLatchBlockEntity> implements IWrenchable {
@@ -39,7 +40,7 @@ public class AnalogSRLatchBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogS
     }
 
     @Override
-    public MapCodec<AnalogSRLatchBlock> codec() {
+    public @NotNull MapCodec<AnalogSRLatchBlock> codec() {
         return CODEC;
     }
 

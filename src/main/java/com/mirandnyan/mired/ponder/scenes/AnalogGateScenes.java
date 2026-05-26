@@ -91,14 +91,9 @@ public class AnalogGateScenes {
                     .pointAt(analogGateCenter)
                     .text("When the input signal strength is less than the configured value, the output will be 0");
 
-            for (int i = 0; i <= 8; i += 2) {
-                scene.idle(15);
-                effects.indicateRedstone(grid.at(2, 1, 0));
-                setAnalogLeverPower(world, analogLever, i);
-                setNixiePower(world, inputNixie, i);
-                setRedstoneWirePower(world, inputDust, i);
-                setAbstractRedstoneDiodeBackInput(world, analogGatePos, analogGate, i);
-            }
+            stepAnalogLever(scene, world, effects, grid,
+                    analogLeverPos, analogLever, inputDust, inputNixie, analogGatePos, analogGate,
+                    0, 8, 2);
 
             scene.idle(30);
 
