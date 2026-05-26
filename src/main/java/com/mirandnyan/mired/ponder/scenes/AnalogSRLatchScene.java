@@ -31,6 +31,8 @@ public class AnalogSRLatchScene extends Scene {
 
         final BlockPos sideInputPos = grid.at(1, 1, 2);
 
+        // make intellij shut up about some variable definitions
+        //noinspection Duplicates
         final BlockPos outputDust = grid.at(2, 1, 3);
         final BlockPos outputNixiePos = grid.at(2, 1, 4);
 
@@ -43,6 +45,7 @@ public class AnalogSRLatchScene extends Scene {
         final Selection outputNixie = select.position(outputNixiePos);
         final Selection analogSRLatch = select.position(analogSRLatchPos);
 
+        //noinspection Duplicates
         final Selection initial = select.fromTo(analogLeverPos, backInputDust).add(select.position(backInputNixiePos))
                 .add(select.fromTo(outputDust, outputNixiePos)).add(sideInput);
 
@@ -50,7 +53,8 @@ public class AnalogSRLatchScene extends Scene {
         final Vec3 center = vector.centerOf(analogSRLatchPos).add(0, -4 / 16.f, 0);
         final AABB baseOutline = getDiodeBaseOutline(analogSRLatchPos);
         final AABB backOutline = getDiodeBackOutline(analogSRLatchPos);
-        AABB sideOutline = getDiodeRightOutline(analogSRLatchPos); // TODO final
+        final AABB leftOutline = getDiodeLeftOutline(analogSRLatchPos);
+        final AABB rightOutline = getDiodeRightOutline(analogSRLatchPos);
 
 
         // DRAMATIC ENTRANCE OF ANALOG SR LATCH
@@ -68,17 +72,29 @@ public class AnalogSRLatchScene extends Scene {
         scene.idle(50);
 
         // INPUTS EXPLAINED
+        overlay.chaseBoundingBoxOutline(PonderPalette.GREEN, backOutline, backOutline, 80);
+        overlay.showText(80)
+                .attachKeyFrame()
+                .placeNearTarget()
+                .pointAt(center)
+                .text("Analog signals from the back input are stored");
+
+        scene.idle(80);
+
         stepAnalogLever(scene, world, effects, grid,
                 analogLeverPos, analogLever, backInputDust, inputNixie, analogSRLatchPos, analogSRLatch,
                 1, 3, 1);
 
         scene.idle(10);
 
+        overlay.chaseBoundingBoxOutline(PonderPalette.RED, leftOutline, leftOutline, 80);
+        overlay.chaseBoundingBoxOutline(PonderPalette.RED, rightOutline, leftOutline, 80);
+
         overlay.showText(80)
                 .attachKeyFrame()
                 .placeNearTarget()
                 .pointAt(center)
-                .text("Their state is only updated when they receive a signal from one of the side inputs");
+                .text("The output value only changes when a signal from one of the side inputs is given");
 
         scene.idle(60);
 

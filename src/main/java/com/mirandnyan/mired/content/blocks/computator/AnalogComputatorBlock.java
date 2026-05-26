@@ -21,8 +21,6 @@ import org.joml.Vector3f;
 
 public class AnalogComputatorBlock extends AbstractBinaryRedstoneDiodeBlock<AnalogComputatorBlockEntity> {
     public static final MapCodec<AnalogComputatorBlock> CODEC = simpleCodec(AnalogComputatorBlock::new);
-//    public static BooleanProperty POWERING = BooleanProperty.create("powering");
-//    public static BooleanProperty SIDE_POWERED = BooleanProperty.create("side_powered");
 
     public AnalogComputatorBlock(final Properties builder) {
         super(builder);

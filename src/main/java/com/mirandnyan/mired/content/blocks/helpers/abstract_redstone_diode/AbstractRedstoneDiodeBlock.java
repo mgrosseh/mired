@@ -6,11 +6,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.SignalGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractRedstoneDiodeBlock<T extends AbstractRedstoneDiodeBlockEntity> extends AbstractDiodeBlock implements IBE<T> {
@@ -20,8 +23,22 @@ public abstract class AbstractRedstoneDiodeBlock<T extends AbstractRedstoneDiode
         super(builder);
     }
 
+
     @Override
-    protected void checkTickOnNeighbor(final Level level, final BlockPos pos, final BlockState state) {
+    public InteractionResult onWrenched(BlockState state, UseOnContext context) {
+        // make sure when rotated all values get updated properly
+        InteractionResult result = super.onWrenched(state, context);
+        if (result == InteractionResult.SUCCESS) {
+            Level level = context.getLevel();
+            BlockPos pos = context.getClickedPos();
+            BlockState newState = level.getBlockState(pos);
+            context.getLevel().updateNeighborsAt(pos.relative(newState.getValue(FACING).getOpposite()), this);
+        }
+        return result;
+    }
+
+    @Override
+    protected void checkTickOnNeighbor(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state) {
         super.checkTickOnNeighbor(level, pos, state);
         this.refreshInputSignals(state, level, pos);
         level.setBlock(pos, this.getUpdatedBlockstate(pos, state, level), 2);

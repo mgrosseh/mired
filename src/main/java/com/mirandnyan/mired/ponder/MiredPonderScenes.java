@@ -18,7 +18,6 @@ public class MiredPonderScenes {
 
         helper.forComponents(MiredBlocks.ANALOG_GATE_BLOCK)
                 .addStoryBoard("analog_gate", AnalogGateScenes.AnalogGate::run);
-
         helper.forComponents(MiredBlocks.ANALOG_SR_LATCH_BLOCK)
                 .addStoryBoard("analog_sr_latch", AnalogSRLatchScene.instance::run);
         helper.forComponents(MiredBlocks.COMPUTATOR)
