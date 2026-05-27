@@ -3,9 +3,11 @@ package com.mirandnyan.mired.ponder.scenes;
 import com.mirandnyan.mired.content.blocks.measuring_redstone_link.MeasuringRedstoneLinkBlock;
 import com.simibubi.create.content.redstone.link.RedstoneLinkBlock;
 import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
+import net.createmod.catnip.math.Pointing;
 import net.createmod.ponder.api.scene.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChiseledBookShelfBlock;
 import net.minecraft.world.level.block.LeverBlock;
@@ -88,6 +90,9 @@ public class MeasuringRedstoneLinkScene extends Scene {
         scene.idle(30);
 
         var bookSlots = ChiseledBookShelfBlock.SLOT_OCCUPIED_PROPERTIES;
+        final Vec3 bookshelfMid = vector.blockSurface(bookshelfPos, Direction.DOWN);
+
+        overlay.showControls(bookshelfMid, Pointing.UP, 20).withItem(Items.BOOK.getDefaultInstance());
         world.modifyBlock(bookshelfPos, state -> state.setValue(bookSlots.getFirst(), true), false);
         world.modifyBlock(transmitLinkPos, state -> state.setValue(MeasuringRedstoneLinkBlock.POWERED, true), false);
         world.modifyBlock(measuringLinkPos, state -> state.setValue(MeasuringRedstoneLinkBlock.POWERED, true), false);
@@ -102,6 +107,7 @@ public class MeasuringRedstoneLinkScene extends Scene {
                         + "it emits the analog signal a comparator would on the configured Redstone Link Frequency");
         scene.idle(110);
 
+        overlay.showControls(bookshelfMid, Pointing.UP, 20).withItem(Items.BOOK.getDefaultInstance());
         world.modifyBlock(bookshelfPos, state -> state.setValue(bookSlots.get(3), true), false);
         world.modifyBlock(transmitLinkPos, state -> state.setValue(MeasuringRedstoneLinkBlock.POWERED, true), false);
         world.modifyBlock(measuringLinkPos, state -> state.setValue(MeasuringRedstoneLinkBlock.POWERED, true), false);
@@ -150,7 +156,5 @@ public class MeasuringRedstoneLinkScene extends Scene {
         setNixiePower(world, regularNixie, 15);
         world.modifyBlock(measuringLinkPos, state -> state.setValue(MeasuringRedstoneLinkBlock.POWERED, true), false);
         setNixiePower(world, measuringNixie, 15);
-
-
     }
 }
