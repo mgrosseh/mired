@@ -1,7 +1,19 @@
 package com.mirandnyan.mired;
 
+import com.mirandnyan.mired.content.blocks.encased_redstone.WrenchableEncasedRedstoneBlock;
+import com.mirandnyan.mired.util.LangMap;
+import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.tterrag.registrate.builders.AbstractBuilder;
+import com.tterrag.registrate.builders.BlockBuilder;
+import com.tterrag.registrate.builders.ItemBuilder;
+import com.tterrag.registrate.util.nullness.NonNullFunction;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /** AKA Lang */
 public class MiredTranslations {
@@ -25,16 +37,13 @@ public class MiredTranslations {
     public static final LangEntry TOOLTIP_MODE_GREATER_EQUAL = new LangEntry("tooltip.analog_gate.mode.greater_equal", "Greater than or Equal");
     public static final LangEntry TOOLTIP_MODE_LESS_EQUAL = new LangEntry("tooltip.analog_gate.mode.less_equal", "Less than or Equal");
 
-    public static class LangEntry {
-        public String textEnglish;
-        public String translationKey;
+    public static class LangEntry extends LangMap {
         public LangEntry(String translationKey, String textEnglish) {
             this(Mired.MOD_ID, translationKey, textEnglish);
         }
         public LangEntry(String prefix, String translationKey, String textEnglish) {
-            this.textEnglish = textEnglish;
-            this.translationKey = (prefix.isEmpty() ? "" : prefix + ".") + translationKey;
-            Mired.getRegistrate().addRawLang(this.translationKey, textEnglish);
+            super((prefix.isEmpty() ? "" : prefix + ".") + translationKey, textEnglish);
+            Mired.getRegistrate().addRawLang(this.translationKey, this.textEnglish);
         }
 
         public Component resolveComponent() {
