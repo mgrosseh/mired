@@ -20,6 +20,7 @@ import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.AllSpriteShifts;
 import com.simibubi.create.content.decoration.encasing.EncasedCTBehaviour;
+import com.simibubi.create.foundation.block.ItemUseOverrides;
 import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRenderer;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
@@ -137,6 +138,7 @@ public class MiredBlocks {
             .lang("Analog SR Latch")
             .initialProperties(() -> Blocks.COMPARATOR)
             .blockstate(AnalogSRLatchBlockStateGen.instance.generate())
+            .onRegister(ItemUseOverrides::addBlock)
             .item()
             .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
                     .pattern(" T ")
@@ -155,7 +157,7 @@ public class MiredBlocks {
     public static final BlockEntityEntry<AnalogSRLatchBlockEntity> ANALOG_SR_LATCH_BLOCK_ENTITY = REGISTRATE
             .blockEntity("analog_sr_latch", AnalogSRLatchBlockEntity::new)
             .visual(() -> AnalogSRLatchVisual::new, false)
-            .validBlock(ANALOG_SR_LATCH_BLOCK)
+            .validBlocks(ANALOG_SR_LATCH_BLOCK)
             .renderer(() -> AnalogSRLatchRenderer::new)
             .register();
 

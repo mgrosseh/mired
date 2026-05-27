@@ -2,7 +2,6 @@ package com.mirandnyan.mired.ponder.scenes;
 
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollOptionBehaviour;
-import com.simibubi.create.foundation.gui.AllIcons;
 import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
 import net.createmod.catnip.math.Pointing;
 import net.createmod.ponder.api.PonderPalette;

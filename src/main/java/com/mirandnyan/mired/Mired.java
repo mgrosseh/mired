@@ -20,7 +20,6 @@ import net.neoforged.fml.ModContainer;
 
 @Mod(Mired.MOD_ID)
 public class Mired {
-    // TODO: tooltip for Encased Redstone, Redstone Inverter
 
     public static final String MOD_ID = "mired";
     public static final String MOD_NAME = "Mired";

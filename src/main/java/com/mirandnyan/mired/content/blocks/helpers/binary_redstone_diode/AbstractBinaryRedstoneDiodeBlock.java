@@ -2,7 +2,6 @@ package com.mirandnyan.mired.content.blocks.helpers.binary_redstone_diode;
 
 import com.mirandnyan.mired.content.blocks.helpers.abstract_redstone_diode.AbstractRedstoneDiodeBlock;
 import com.simibubi.create.foundation.block.IBE;
-import dev.simulated_team.simulated.multiloader.CommonRedstoneBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;

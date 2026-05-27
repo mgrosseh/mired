@@ -58,11 +58,6 @@ It also enables placing them above or below a block.
 
 Also works through blocks.
 
-# Planed
-- Ponder Scenes / Tooltips
-- Maybe one or two more blocks, though I am quite happy with the current selection.
-- Integration for Aeronautics fixing Measuring Redstone Link not working with some components.
-
 # About
 Made by Mirandnyan.
 

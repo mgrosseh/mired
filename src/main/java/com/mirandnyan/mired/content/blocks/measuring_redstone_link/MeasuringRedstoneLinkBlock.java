@@ -1,9 +1,11 @@
 package com.mirandnyan.mired.content.blocks.measuring_redstone_link;
 
 import com.mirandnyan.mired.MiredBlocks;
+import com.mirandnyan.mired.compat.Mods;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.foundation.block.IBE;
 import com.simibubi.create.foundation.block.WrenchableDirectionalBlock;
+import dev.simulated_team.simulated.api.IDirectionalAnalogOutput;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -33,7 +35,7 @@ import java.util.List;
 
 public class MeasuringRedstoneLinkBlock extends WrenchableDirectionalBlock implements IBE<MeasuringRedstoneLinkBlockEntity> {
     // NOTE: Most of this class mimics behavior of Create's RedstoneLinkBlock exactly, sadly I wasn't able to just extend it.
-    // It starts after the comment.
+    //       Inherited code starts after the comment.
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     public static final BooleanProperty RECEIVER = BooleanProperty.create("receiver");
 
@@ -79,7 +81,11 @@ public class MeasuringRedstoneLinkBlock extends WrenchableDirectionalBlock imple
         BlockPos blockpos = pos.relative(direction);
         BlockState blockstate = level.getBlockState(blockpos);
         if (blockstate.hasAnalogOutputSignal()) {
-            power = blockstate.getAnalogOutputSignal(level, blockpos);
+            if (Mods.SIMULATED.isLoaded() && blockstate.getBlock() instanceof IDirectionalAnalogOutput block) {
+                power = block.getAnalogOutputSignalFrom(blockstate, level, blockpos, direction);
+            }
+            else
+                power = blockstate.getAnalogOutputSignal(level, blockpos);
         } else if (blockstate.isRedstoneConductor(level, blockpos)) {
             blockpos = blockpos.relative(direction);
             blockstate = level.getBlockState(blockpos);
@@ -98,6 +104,12 @@ public class MeasuringRedstoneLinkBlock extends WrenchableDirectionalBlock imple
                 new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1),
                 (frame) -> frame != null && frame.getDirection() == facing);
         return list.size() == 1 ? list.getFirst() : null;
+    }
+
+    public void onNeighborChange(BlockState state, LevelReader world, BlockPos pos, BlockPos neighbor) {
+        if (pos.relative(state.getValue(FACING).getOpposite()).equals(neighbor) && world instanceof Level level && !level.isClientSide()) {
+            state.handleNeighborChanged(level, pos, world.getBlockState(neighbor).getBlock(), neighbor, false);
+        }
     }
 
     // CREATE REDSTONE LINK BEHAVIOR:

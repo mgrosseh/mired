@@ -1,6 +1,5 @@
 package com.mirandnyan.mired.content.blocks.measuring_redstone_link;
 
-import com.simibubi.create.content.redstone.link.RedstoneLinkBlock;
 import com.simibubi.create.content.redstone.link.RedstoneLinkGenerator;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
