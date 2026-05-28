@@ -58,12 +58,12 @@ public class WrenchableEncasedRedstoneBlock extends EncasedRedstoneBlock impleme
         for(Direction direction : Direction.values()) {
             if (!state.getValue(PROPERTY_BY_DIRECTION.get(direction)))
                 continue;
-            int j = level.getSignal(pos.relative(direction), direction);
-            if (j >= 15)
+            BlockPos relativePos = pos.relative(direction);
+
+            i = level.getSignal(relativePos, direction);
+            if (i >= 15)
                 return 15;
 
-            if (j > i)
-                i = j;
         }
 
         return i;
@@ -83,8 +83,6 @@ public class WrenchableEncasedRedstoneBlock extends EncasedRedstoneBlock impleme
 
     @Override
     public boolean shouldCheckWeakPower(BlockState state, SignalGetter level, BlockPos pos, Direction side) {
-        if (state.getValue(PROPERTY_BY_DIRECTION.get(side.getOpposite())))
-            return state.isRedstoneConductor(level, pos);
         return false;
     }
 
