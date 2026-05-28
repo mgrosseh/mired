@@ -33,7 +33,7 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
             case ADDITION -> Optional.of(this.getBackInputSignal() + this.getSideInputSignal());
             case SUBTRACTION -> Optional.of(this.getBackInputSignal() - this.getSideInputSignal());
             case MULTIPLICATION -> Optional.of(this.getBackInputSignal() * this.getSideInputSignal());
-            case DIVISION -> Optional.of(this.getSideInputSignal() == 0 ? 15 : this.getBackInputSignal() / this.getSideInputSignal());
+            case DIVISION -> Optional.of(this.getSideInputSignal() == 0 ? ((int) (Math.random() * 16)) : this.getBackInputSignal() / this.getSideInputSignal());
         };
     }
 

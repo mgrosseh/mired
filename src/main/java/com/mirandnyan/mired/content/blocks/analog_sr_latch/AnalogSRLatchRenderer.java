@@ -51,11 +51,8 @@ public class AnalogSRLatchRenderer extends SafeBlockEntityRenderer<AnalogSRLatch
     }
 
     private SuperByteBuffer transform(SuperByteBuffer buffer, BlockState leverState) {
-        AttachFace face = leverState.getValue(AnalogLeverBlock.FACE);
-        float rX = face == AttachFace.FLOOR ? 0 : face == AttachFace.WALL ? 90 : 180;
-        float rY = AngleHelper.horizontalAngle(leverState.getValue(AnalogLeverBlock.FACING));
+        float rY = AngleHelper.horizontalAngle(leverState.getValue(AnalogLeverBlock.FACING)) + 90;
         buffer.rotateCentered((float) (rY / 180 * Math.PI), Direction.UP);
-        buffer.rotateCentered((float) (rX / 180 * Math.PI), Direction.EAST);
         return buffer;
     }
 }

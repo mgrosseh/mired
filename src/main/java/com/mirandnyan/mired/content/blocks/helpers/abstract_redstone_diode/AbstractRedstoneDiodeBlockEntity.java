@@ -65,6 +65,7 @@ public abstract class AbstractRedstoneDiodeBlockEntity extends SmartBlockEntity 
         boolean update = output != this.outputSignal;
         this.outputSignal = Mth.clamp(output, 0, 15);
         if (update) {
+            assert this.level != null;
             this.updateFacingBlock(this.getBlockState().getBlock(), this.level);
             this.sendData();
         }
