@@ -11,7 +11,6 @@ import com.simibubi.create.foundation.gui.AllIcons;
 import dev.engine_room.flywheel.lib.transform.TransformStack;
 import net.createmod.catnip.math.AngleHelper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -33,8 +32,11 @@ public class AnalogComputatorBlockEntity extends AbstractBinaryRedstoneDiodeBloc
             case ADDITION -> Optional.of(this.getBackInputSignal() + this.getSideInputSignal());
             case SUBTRACTION -> Optional.of(this.getBackInputSignal() - this.getSideInputSignal());
             case MULTIPLICATION -> Optional.of(this.getBackInputSignal() * this.getSideInputSignal());
-            case DIVISION -> Optional.of(this.getSideInputSignal() == 0 ? ((int) (Math.random() * 16)) : this.getBackInputSignal() / this.getSideInputSignal());
+            case DIVISION -> Optional.of(this.getSideInputSignal() == 0 ? generateRandom() : this.getBackInputSignal() / this.getSideInputSignal());
         };
+    }
+    protected int generateRandom() {
+        return (int) (Math.random() * 16);
     }
 
     @Override
