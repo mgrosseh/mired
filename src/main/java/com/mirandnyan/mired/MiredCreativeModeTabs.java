@@ -2,7 +2,6 @@ package com.mirandnyan.mired;
 
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
@@ -20,7 +19,7 @@ public class MiredCreativeModeTabs {
                 () -> CreativeModeTab.builder()
                         .title(MiredTranslations.CREATIVE_MODE_TAB.resolveComponent())
                         .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-                        .icon(() -> MiredBlocks.getItem(MiredBlocks.BRASS_ENCASED_REDSTONE).asStack())
+                        .icon(() -> MiredBlocks.getItem(MiredBlocks.ANALOG_SR_LATCH_BLOCK).asStack())
                         .displayItems((parameters, output) -> {
                             output.accept(MiredBlocks.getItem(MiredBlocks.ANDESITE_ENCASED_REDSTONE));
                             output.accept(MiredBlocks.getItem(MiredBlocks.COPPER_ENCASED_REDSTONE));

@@ -7,7 +7,6 @@ import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlock;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockEntity;
 import com.mirandnyan.mired.content.blocks.analog_inverter.AnalogInverterBlockStateGen;
 import com.mirandnyan.mired.content.blocks.analog_sr_latch.*;
-import com.mirandnyan.mired.content.blocks.encased_redstone.EncasedRedstoneBlock;
 import com.mirandnyan.mired.content.blocks.encased_redstone.WrenchableEncasedRedstoneBlock;
 import com.mirandnyan.mired.content.blocks.encased_redstone.EncasedRedstoneBlockStateGen;
 import com.mirandnyan.mired.content.blocks.computator.AnalogComputatorBlock;

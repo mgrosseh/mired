@@ -1,19 +1,8 @@
 package com.mirandnyan.mired;
 
-import com.mirandnyan.mired.content.blocks.encased_redstone.WrenchableEncasedRedstoneBlock;
 import com.mirandnyan.mired.util.LangMap;
-import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.tterrag.registrate.builders.AbstractBuilder;
-import com.tterrag.registrate.builders.BlockBuilder;
-import com.tterrag.registrate.builders.ItemBuilder;
-import com.tterrag.registrate.util.nullness.NonNullFunction;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /** AKA Lang */
 public class MiredTranslations {
