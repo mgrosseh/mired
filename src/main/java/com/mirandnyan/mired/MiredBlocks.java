@@ -37,6 +37,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
+import static com.simibubi.create.foundation.data.CreateRegistrate.casingConnectivity;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 
 public class MiredBlocks {
@@ -45,6 +46,8 @@ public class MiredBlocks {
     public static final BlockEntry<WrenchableEncasedRedstoneBlock> BRASS_ENCASED_REDSTONE = REGISTRATE.block("brass_encased_redstone", WrenchableEncasedRedstoneBlock::new)
             .initialProperties(AllBlocks.BRASS_CASING)
             .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(AllSpriteShifts.BRASS_CASING)))
+            .onRegister(casingConnectivity((block, cc) ->
+                    cc.makeCasing(block, AllSpriteShifts.BRASS_CASING)))
             .blockstate(EncasedRedstoneBlockStateGen.wrenchable.generate())
             .properties(prop -> prop
                     .strength(3.0f, 6.0f)
@@ -63,6 +66,8 @@ public class MiredBlocks {
     public static final BlockEntry<WrenchableEncasedRedstoneBlock> COPPER_ENCASED_REDSTONE = REGISTRATE.block("copper_encased_redstone", WrenchableEncasedRedstoneBlock::new)
             .initialProperties(AllBlocks.COPPER_CASING)
             .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(AllSpriteShifts.COPPER_CASING)))
+            .onRegister(casingConnectivity((block, cc) ->
+                    cc.makeCasing(block, AllSpriteShifts.COPPER_CASING)))
             .blockstate(EncasedRedstoneBlockStateGen.wrenchable.generate())
             .properties(prop -> prop
                     .strength(3.0f, 6.0f)
@@ -81,6 +86,8 @@ public class MiredBlocks {
     public static final BlockEntry<WrenchableEncasedRedstoneBlock> ANDESITE_ENCASED_REDSTONE = REGISTRATE.block("andesite_encased_redstone", WrenchableEncasedRedstoneBlock::new)
             .initialProperties(AllBlocks.ANDESITE_CASING)
             .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(AllSpriteShifts.ANDESITE_CASING)))
+            .onRegister(casingConnectivity((block, cc) ->
+                    cc.makeCasing(block, AllSpriteShifts.ANDESITE_CASING)))
             .blockstate(EncasedRedstoneBlockStateGen.wrenchable.generate())
             .properties(prop -> prop
                     .strength(3.0f, 6.0f)

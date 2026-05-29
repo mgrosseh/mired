@@ -24,7 +24,7 @@ to toggle otherwise unreachable faces.
 
 This allows to create parallel redstone cables or very compact logic with interwoven Encased Redstone.
 
-I plan to make them connect textures with the other casings, but this currently does not work.
+Supports Create's connected textures.
 
 ## Analog Computator
 Select computation mode (add, subtract, multiply, divide) and `output = side-input <> back-input` where `<>` is the 

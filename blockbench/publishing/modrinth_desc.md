@@ -23,7 +23,7 @@ to toggle otherwise unreachable faces.
 
 This allows to create parallel redstone cables or very compact logic with interwoven Encased Redstone.
 
-I plan to make them connect textures with the other casings, but this currently does not work.
+Supports Create's connected textures.
 
 ## Analog Computator
 ![Close up of Analog Computator. Looks similar to the other Redstone Components, like Comparator and Repeater](https://cdn.modrinth.com/data/cached_images/8e2298cce6e196119581a79ca1afcf6a83db8404.png)
@@ -59,7 +59,7 @@ Maybe planned modes: (`<`, `<=`, `=`, `>=` and `>`); I will test how this feels 
 ![Looks like a Redstone Link from Create, but its purple](https://cdn.modrinth.com/data/cached_images/76e19df66b5bb0a264d69e097046d14fa5eb2d14.png)
 
 Works identical to redstone links in receive mode. 
-However in transmit mode, it will not react to any redstone inputs, instead on certain blocks (same as comparator) 
+However in transmit mode, it will not react to any redstone inputs. Instead, on certain blocks (same as comparator), 
 it will behave like a comparator that is reading the analog signal of that block and sending it into a redstone link of
 that frequency. This can make certain builds possible (like on cars / planes with little space) or prettier 
 (e.g. Aeronautics Steering Wheel requires a lot of restrictive building to make comparators invisible). 
@@ -68,4 +68,4 @@ It also enables placing them above or below a block.
 Also works through blocks.
 
 # Suggestions / Issues
-Feel free to report any issues or give suggestions on my Github (visit Issues / Source).
+Feel free to report any issues or give suggestions on my GitHub (visit Issues / Source).
