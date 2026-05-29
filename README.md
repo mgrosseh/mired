@@ -27,7 +27,7 @@ This allows to create parallel redstone cables or very compact logic with interw
 Supports Create's connected textures.
 
 ## Analog Computator
-Select computation mode (add, subtract, multiply, divide) and `output = side-input <> back-input` where `<>` is the 
+Select computation mode (add, subtract, multiply, divide) and `output = back-input <> side-input` where `<>` is the 
 chosen computation mode.
 
 ## Analog SR Latch

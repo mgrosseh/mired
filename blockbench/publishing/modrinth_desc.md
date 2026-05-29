@@ -28,7 +28,7 @@ Supports Create's connected textures.
 ## Analog Computator
 ![Close up of Analog Computator. Looks similar to the other Redstone Components, like Comparator and Repeater](https://cdn.modrinth.com/data/cached_images/8e2298cce6e196119581a79ca1afcf6a83db8404.png)
 
-Select computation mode (add, subtract, multiply, divide) and `output = side-input <> back-input` where `<>` is the 
+Select computation mode (add, subtract, multiply, divide) and `output = back-input <> side-input` where `<>` is the 
 chosen computation mode.
 
 ## Analog SR Latch
